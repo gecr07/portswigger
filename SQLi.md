@@ -47,7 +47,7 @@ Desde la peticion incial
 ***Restricciones***
 Para que UNION funcione tiene que pasar el mismo numero de columnas en el union y tambien deben de manejar el mismo tipo de datos
 
-Paso 1 
+#### Paso 1 
 
 Ver cuantas columnas tienen esa tabla  se puede hacer por dos metodos 
 
@@ -59,14 +59,14 @@ Metodo 2
 
 UNION SELECT NULL,NULL,NULL-- ir probando de igual que order by para ver cuantas columnas esta trabajando esa query
 
-Paso 2 
+#### Paso 2 
 
 Verificar el tipo de datos que maneja cada columna debe de ser del mismo tipo para que no falle ( si se usa burp url encodear antes de mandar)
 
 >'UNION SELECT NULL,NULL,NULL--
 >' UNION SELECT 'abcdef',NULL,NULL--
 
-Paso 3 
+#### Paso 3 
 
 Sacar datos(falta investigar los datos de la base como nombre de tabla etc) 
 
