@@ -63,7 +63,9 @@ Hasta n cuando de error entonces ya no es valido osea es ir probando.
 
 Metodo 2 
 
-UNION SELECT NULL,NULL,NULL-- ir probando de igual que order by para ver cuantas columnas esta trabajando esa query
+> 'UNION SELECT NULL,NULL,NULL--
+
+Ir probando de igual que order by para ver cuantas columnas esta trabajando esa query
 
 #### Paso 2 
 
