@@ -54,7 +54,9 @@ Ver cuantas columnas tienen esa tabla  se puede hacer por dos metodos
 Metodo 1
 
 >' ORDER BY 1--
+
 >' ORDER BY 2--
+
 >' ORDER BY 3--
 
 Hasta n cuando de error entonces ya no es valido osea es ir probando.
