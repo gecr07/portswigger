@@ -81,7 +81,9 @@ Sacar datos(falta investigar los datos de la base como nombre de tabla etc)
 
 
 
+# Bibliografia o Recursos Consultados
 
+> https://medium.com/@nyomanpradipta120/sql-injection-union-attack-9c10de1a5635
 
-
+>https://portswigger.net/web-security/sql-injection/cheat-sheet
 
