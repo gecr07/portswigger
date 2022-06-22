@@ -36,11 +36,44 @@ Entonces si logramos comentar el and con '--
 
 When an application is vulnerable to SQL injection and the results of the query are returned within the application's responses, the UNION keyword can be used to retrieve data from other tables within the database. This results in an SQL injection UNION attack
 
+***En resumen tienes que lograr esto***
+
+> SELECT a, b FROM table1 UNION SELECT c, d FROM table2
+
+Desde la peticion incial
+
 > SELECT name, description FROM products WHERE category = 'Gifts'
+
+***Restricciones***
+Para que UNION funcione tiene que pasar el mismo numero de columnas en el union y tambien deben de manejar el mismo tipo de datos
 
 Paso 1 
 
-Ver cuantas columnas tienen esa tabla 
+Ver cuantas columnas tienen esa tabla  se puede hacer por dos metodos 
+
+Metodo 1
+
+ORDER BY 1 hasta n cuando de error entonces ya no es valido osea es ir probando.
+
+Metodo 2 
+
+UNION SELECT NULL,NULL,NULL-- ir probando de igual que order by para ver cuantas columnas esta trabajando esa query
+
+Paso 2 
+
+Verificar el tipo de datos que maneja cada columna debe de ser del mismo tipo para que no falle ( si se usa burp url encodear antes de mandar)
+
+>'UNION SELECT NULL,NULL,NULL--
+>' UNION SELECT 'abcdef',NULL,NULL--
+
+Paso 3 
+
+Sacar datos(falta investigar los datos de la base como nombre de tabla etc) 
+
+> ' UNION SELECT username, password FROM users--
+
+
+
 
 
 
