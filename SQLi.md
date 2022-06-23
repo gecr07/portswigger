@@ -107,8 +107,22 @@ SELECT * FROM dual;
 
 Por o tanto para intentar el ataque de UNION tenemos que llamar a esta tabla o usar el ORDER BY como primer paso pero despues para el segundo paso ***ver que datos tienen esas columnas (STRINGS O NUMEROS) si es que no lo podemos inferir por los datos de la pagina EN la query usamos la tabla dual***. Para sacar la version de oracle lo intuimos al mandar la query y que no nos responda despues mandarla con la tabla dual y que si nos responda.
 
+### MYSQL
 
-# Bibliografia o Recursos Consultados
+Para la base de datos de mysql hay que tener algunas cosideraciones por ejemplo el comentario ya no es -- si no # 
+si se puede usar -- pero requiere que se use un espacio al ultimo asi "-- " (sin comillas solo el el ejemplo)
+
+```
+
+'UNION SELECT @@version,NULL#
+'union select @@version,null--
+
+```
+
+# Bibliografia o Recursos Con
+
+```
+sultados
 
 > https://medium.com/@nyomanpradipta120/sql-injection-union-attack-9c10de1a5635
 
