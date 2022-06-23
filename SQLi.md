@@ -86,7 +86,7 @@ Sacar datos(falta investigar los datos de la base como nombre de tabla etc)
 
 #### Tabla dual
 
-Para la sentencia ***SELECT*** para realizar cualquier query necesitamos decirle a que tabla. Para hacer frente a este problema Oracle creo la tabla dual que es accesible para todos los usuarios.
+En el caso de una base de datos ORACLE para la sentencia ***SELECT*** para realizar cualquier query necesitamos decirle a que tabla. Para hacer frente a este problema Oracle creo la tabla dual que es accesible para todos los usuarios.
 
 >In Oracle, the SELECT statement must have a FROM clause. However, some queries don’t require any table for example:
 >Fortunately, Oracle provides you with the DUAL table which is a special table that belongs to the schema of the user SYS but it is accessible to all users.
