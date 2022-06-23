@@ -82,6 +82,30 @@ Sacar datos(falta investigar los datos de la base como nombre de tabla etc)
 
 > ' UNION SELECT username, password FROM users--
 
+### Oracle DB
+
+#### Tabla dual
+
+Para hacer frente a este problema Oracle creo la tabla dual que es accesible para todos los usuarios
+
+Para realizar cualquier query necesitamos decirle a que tabla.
+
+>In Oracle, the SELECT statement must have a FROM clause. However, some queries don’t require any table for example:
+
+```
+SELECT * FROM dual;
+```
+
+>Fortunately, Oracle provides you with the DUAL table which is a special table that belongs to the schema of the user SYS but it is accessible to all users.
+The DUAL table has one column named DUMMY whose data type is VARCHAR2() and contains one row with a value X
+
+Por o tanto para intentar el ataque de UNION tenemos que llamar a esta tabla o usar el ORDER BY como primer paso pero despues para el segundno paso ***ver que datos tienen esas columnas (STRINGS O NUMEROS) si es que no lo podemos inferir por los datos de la pagina EN la query usamos la tabla dual***
+
+>'union select 'a',null from dual--
+
+>'union select banner,null from v$version--
+
+Para sacar laa version de oracle lo intuimos al mandar la query y que no nos responda despues mandarla con la tabla dual y que si nos responda.
 
 
 
