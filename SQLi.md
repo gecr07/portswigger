@@ -110,7 +110,7 @@ Por o tanto para intentar el ataque de UNION tenemos que llamar a esta tabla o u
 ### MYSQL
 
 Para la base de datos de mysql hay que tener algunas cosideraciones por ejemplo el comentario ya no es -- si no # 
-si se puede usar -- pero requiere que se use un espacio al ultimo asi "-- " (sin comillas solo el el ejemplo)
+si se puede usar -- pero requiere que se use un espacio al ultimo asi "-- " (sin comillas solo es el ejemplo)
 
 ```
 
