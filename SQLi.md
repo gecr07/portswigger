@@ -119,10 +119,7 @@ si se puede usar -- pero requiere que se use un espacio al ultimo asi "-- " (sin
 
 ```
 
-# Bibliografia o Recursos Con
-
-```
-sultados
+# Bibliografia o Recursos Consultados
 
 > https://medium.com/@nyomanpradipta120/sql-injection-union-attack-9c10de1a5635
 
