@@ -3,7 +3,7 @@
 
 > SQL injection is a web security vulnerability that allows an attacker to interfere with the queries that an application makes to its database
 
-## SQL injection examples
+## SQL injection examples****
 
 ### Retrieving hidden data
 
@@ -52,6 +52,8 @@ Para que UNION funcione tiene que pasar el mismo numero de columnas en el union 
 Ver cuantas columnas tienen esa tabla  se puede hacer por dos metodos 
 
 Metodo 1
+
+*** CTRL + U to url enconde en Burp Suite***
 
 >' ORDER BY 1--
 
