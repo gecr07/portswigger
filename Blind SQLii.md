@@ -164,6 +164,8 @@ Nos regresa que todo esta bien lo renderiza si ponemos dual1 no lo haria daria *
 Entonces aqui tenemos un punto ***como aprovechar** Bueno si hacemos una consulta por ejemplo a la tabla users
 deberia de renderizar todo pero como sacamos los datos¿?
 
+Para sacar datos usamos el "CASE WHEN CONDICION1 THEN GENERAERROR ELSE TODOOK" 
+
 
 
 
