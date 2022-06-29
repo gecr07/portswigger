@@ -18,7 +18,7 @@ Cookie: TrackingId=HjnfhA06d5ESS3fR'and 1=1--; session=BTTP2qL1z1a4sJNyePUM0DOuW
 Cookie: TrackingId=HjnfhA06d5ESS3fR'and 1=2--; session=BTTP2qL1z1a4sJNyePUM0DOuWo4UsYyu
 ```
 
-Si regresa el mensaje de "Welcome back" eso quiere decir que esta interpretanod nuestro codigo. Probar con 1=2 para que de false porque una se evelua con true
+Si regresa el mensaje de "Welcome back" eso quiere decir que esta interpretando nuestro codigo. Probar con 1=2 para que de false porque una se evelua con true
 y la otra con false.
 
 ## Paso 2
