@@ -24,3 +24,17 @@ LENGTH(password)
 
 # Sintaxis substr
 
+Para sacar datos se utiliza substring
+
+```
+SUBSTRING(EXPRESION(COLUMNA),POSICION(EMPIEZA EN 1),LENGTH).
+```
+
+
+
+
+
+
+
+
+
