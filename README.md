@@ -22,7 +22,7 @@ LENGTH(password)
 
 ```
 
-# Sintaxis substr
+# Sintaxis substring
 
 Para sacar datos se utiliza substring
 
