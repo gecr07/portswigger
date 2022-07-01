@@ -11,3 +11,16 @@ El punto y coma ; es el %3B
 ## Url Encode de espacio es 
 
 Para el espacio es + 
+
+
+# Sintaxis LENGTH
+
+Sirve para sacar el largo de un string se usa asi
+
+```
+LENGTH(password)
+
+```
+
+# Sintaxis substr
+
