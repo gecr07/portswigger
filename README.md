@@ -10,7 +10,11 @@ El punto y coma ; es el %3B
 
 ## Url Encode de espacio es 
 
-Para el espacio es + 
+Para el espacio es +%20
+
+## Url encode para comilla '
+
+%27
 
 
 # Sintaxis LENGTH
