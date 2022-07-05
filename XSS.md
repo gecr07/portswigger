@@ -33,6 +33,21 @@ En este caso el payload mas basico es
 
 ><script>alert(1)</script>
 
+## DOM XSS in document.write sink using source
+
+Para este caso insertamos un string en el cuadro de busqueda ej. 'abcd1234' le damos entrer
+y nos muestra eso mismo en un cuadro de h1 le damos inspeccionar
+y nos dirigimos a buscar nos percatamos que 
+
+> <img src="/resources/images/tracker.gif?searchTerms=abcd1234">
+
+
+### Gráficos HTML SVG
+
+> El elemento HTML <svg>es un contenedor para gráficos SVG.
+> SVG tiene varios métodos para dibujar rutas, cuadros, círculos, texto e imágenes gráficas.
+
+
 
 
 
