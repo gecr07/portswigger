@@ -36,11 +36,13 @@ En este caso el payload mas basico es
 ## DOM XSS in document.write sink using source
 
 Para este caso insertamos un string en el cuadro de busqueda ej. 'abcd1234' le damos entrer
-y nos muestra eso mismo en un cuadro de h1 le damos inspeccionar
-y nos dirigimos a buscar nos percatamos que 
+y nos muestra eso mismo en un cuadro de h1(o paecido )clic derecho inspeccionar
+y nos dirigimos a buscar ese mismo string nos percatamos que:
 
-> <img src="/resources/images/tracker.gif?searchTerms=abcd1234">
+```
+<img src="/resources/images/tracker.gif?searchTerms=abcd1234">
 
+```
 
 ### Gráficos HTML SVG
 
@@ -48,9 +50,16 @@ y nos dirigimos a buscar nos percatamos que
 > SVG tiene varios métodos para dibujar rutas, cuadros, círculos, texto e imágenes gráficas.
 
 
+Entonces quiza podamos cerrar la consulta y ademas inctar un codigo
 
+```
+"><svg onload=alert(1)>
+  
+```
 
-
+entoces este cuando recargues la pagina va a mostrar el 1 
+  
+  
 ## Referencias
 
 > https://portswigger.net/web-security/cross-site-scripting
