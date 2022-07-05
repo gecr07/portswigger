@@ -60,6 +60,39 @@ Entonces quiza podamos cerrar la consulta y ademas inctar un codigo
 entoces este cuando recargues la pagina va a mostrar el 1 
   
   
+## Lab: DOM XSS in innerHTML sink using source location.search
+  
+  > This lab contains a DOM-based cross-site scripting vulnerability in the search blog functionality. It uses an innerHTML assignment, which changes the HTML contents of a div element, using data from location.search.
+
+> To solve this lab, perform a cross-site scripting attack that calls the alert function.
+  
+  Para este caso nos indica que el xss se encuentra en una parte del codigo donde se genera mediante 
+  innerHTML buscando un poco nos damos cuenta que la vulnerabilidad reside aqui:
+  
+  ```
+  <span>abcd1234</span>
+  
+  ```
+  
+  ### Span 
+  
+Definición span - abarcar. Es un contenedor en línea. Sirve para aplicar estilo al texto o agrupar elementos en línea.
+  
+Se inyecta un fragmento para que quede dentro del span pero queremos que cause error y ejecute el 1 puede ser con print o con alert 
+  
+```
+  <img src=1 onerror=alert(1)>
+  
+  Como quedaria por dentro ( no lo verias)
+  
+  <span> <img src=1 onerror=alert(1)> </span>
+  
+```  
+  
+Ya que el la sintaxis de src da error se ejecuta el alert.
+  
+  
+  
 ## Referencias
 
 > https://portswigger.net/web-security/cross-site-scripting
