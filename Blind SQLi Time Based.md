@@ -9,7 +9,11 @@ Se puede inyectar codigo con delays de tiempo cambia mucho para cada base de dat
 TrackingId=x'||pg_sleep(10)--
 
 ```
+Esta es una consulta valida
 
+ ```
+ '||(select '') ||'
+```
 
 # Blind SQL injection with time delays and information retrieval 
 
