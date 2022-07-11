@@ -9,6 +9,32 @@ Donde el script malicioso proviene de la solicitud HTTP actual.
 > JavaScript de salida. Un ejemplo de este tipo de XSS podría ser, si al introducir código JavaScript 
 > en el buscador de una página, este código es ejecutado en el navegado
 
+## Cross-site scripting contexts
+
+Donde se aparece la informacion que podemos manipular y por lo tanto un script que inyectar
+
+> The location within the response where attacker-controllable data appears.
+> Any input validation or other processing that is being performed on that data by the application
+
+### XSS between HTML tags
+
+```
+<script>alert(document.domain)</script>
+<img src=1 onerror=alert(1)>
+
+```
+
+### XSS in HTML tag attributes
+
+>  close the tag, and introduce a new one.
+
+```
+
+"><script>alert(document.domain)</script>
+
+```
+
+
 
 # XSS almacenado (Stored cross-site scripting)
 
@@ -36,6 +62,24 @@ En este caso el payload mas basico es
 Tambien ahora que mataron alert se puede usar 
 
 ><script>print(1)</script>
+
+## Dominio que ejecuta
+
+Para saber cual es el dominio que ejecuta el alert puedes usar
+
+> alert(document.domain)
+
+Para evitar que roben las cookies:
+
+>Many applications hide their cookies from JavaScript using the HttpOnly flag.
+
+
+### POC
+
+Un atacante pasaria este link
+
+> https://insecure-website.com/status?message=<script>/*+Bad+stuff+here...+*/</script>
+> <p>Status: <script>/* Bad stuff here... */</script></p>
 
 
 ## DOM XSS in document.write sink using source
