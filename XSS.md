@@ -97,3 +97,6 @@ Ya que el la sintaxis de src da error se ejecuta el alert.
 
 > https://portswigger.net/web-security/cross-site-scripting
 
+> https://portswigger.net/web-security/cross-site-scripting/cheat-sheet
+  
+  
