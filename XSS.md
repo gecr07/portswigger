@@ -33,6 +33,11 @@ En este caso el payload mas basico es
 
 ><script>alert(1)</script>
 
+Tambien ahora que mataron alert se puede usar 
+
+><script>print(1)</script>
+
+
 ## DOM XSS in document.write sink using source
 
 Para este caso insertamos un string en el cuadro de busqueda ej. 'abcd1234' le damos entrer
