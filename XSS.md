@@ -184,6 +184,16 @@ Sessions might be locked to additional factors like the user's IP address.
 The session might time out before you're able to hijack it.
 
 
+### Exploiting cross-site scripting to capture passwords
+
+> These days, many users have password managers that auto-fill their passwords. You can take advantage of this by creating a password input, reading out the auto-filled password, and sending it to your own domain. This technique avoids most of the problems associated with stealing cookies, and can even gain access to every other account where the victim has reused the same password.
+
+
+### Exploiting cross-site scripting to perform CSRF
+
+> Anything a legitimate user can do on a web site, you can probably do too with XSS. Depending on the site you're targeting, you might be able to make a victim send a message, accept a friend request, commit a backdoor to a source code repository, or transfer some Bitcoin.
+
+
 # XSS basado en DOM(DOM-based cross-site scripting)
 
 Donde la vulnerabilidad existe en el código del lado del cliente en lugar del código del lado del servidor.
@@ -191,6 +201,29 @@ Donde la vulnerabilidad existe en el código del lado del cliente en lugar del c
 
 > XSS Basados en DOM: la aplicación procesa datos controlables por el usuario de forma insegura.  De forma similar al XSS Reflejado, un ejemplo de este ataque sería si en la URL escribimos código JavaScript y la web tiene un script que añade la URL sin sanear como parte del HTML. Al cargar la web el código JavaScript se ejecutará. La diferencia de este tipo de XSS con el XSS reflejado es que si miramos el código no veremos el JavaScript directamente en el HTML ya que todo sucede en el DOM.
 
+
+## DOM vs BOM ( window.location)
+
+> DOM significa modelo de objeto de documento ... cuando se carga la página web, el navegador crea un modelo de objeto de documento para la página ... Todos los objetos se organizan como estructura de árbol ...
+
+> BOM significa que el objeto Browser Object Model.window es compatible con todos los navegadores que representan el navegador de ventanas. Todos los objetos, funciones y variables globales de JavaScript se convierten automáticamente en miembros del objeto de ventana.
+
+
+> El objeto document es el único que pertenece tanto al DOM (como se vio en el capítulo anterior) como al BOM. Desde el punto de vista del BOM, el objeto document proporciona información sobre la propia página HTML.
+
+> BOM significa Modelo de Objeto del Navegador. Estos son objetos que puede utilizar para manipular el navegador. ellos son navegantes
+
+1. navegador
+2. pantalla
+3. ubicación
+4. historia
+5. documento
+
+ Ejemplo 
+ 
+ The window.location.href property returns the URL of the current page.
+ 
+ 
 
 # Ejemplos Laboratorios
 
