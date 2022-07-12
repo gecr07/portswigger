@@ -171,6 +171,19 @@ Donde el script malicioso proviene de la base de datos del sitio web.
 > XSS Almacenado: la aplicación almacena datos proporcionados por el usuario sin validar ni sanear, los que posteriormente son visualizados por otro usuario o un administrador. Una página web sería vulnerable a este tipo de XSS si por ejemplo un usuario introduce como dirección de entrega código JavaScript 
 > y este código se ejecuta cuando un empleado accede al perfil del usuario.
 
+## Vectores  de   Ataque
+
+### Exploiting cross-site scripting to steal cookies
+
+Limittaciones
+
+>  In practice, this approach has some significant limitations:  
+>  The victim might not be logged in.
+Many applications hide their cookies from JavaScript using the HttpOnly flag.
+Sessions might be locked to additional factors like the user's IP address.
+The session might time out before you're able to hijack it.
+
+
 # XSS basado en DOM(DOM-based cross-site scripting)
 
 Donde la vulnerabilidad existe en el código del lado del cliente en lugar del código del lado del servidor.
