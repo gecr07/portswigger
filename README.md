@@ -48,3 +48,17 @@ https://portswigger.net/web-security/sql-injection/cheat-sheet
 
  Son los < o > 
 
+## JSON comentarios
+
+Si está utilizando Jackson como su analizador JSON, así es como lo habilita para permitir comentarios:
+
+Entonces puedes tener comentarios como este:
+
+```
+{
+  key: "value" // Comment
+}
+
+```
+>https://www.wake-up-neo.com/es/json/se-pueden-usar-los-comentarios-en-json/958451077/#:~:text=JSON%20no%20admite%20comentarios.,archivo%20de%20configuraci%C3%B3n%20para%20humanos.
+
