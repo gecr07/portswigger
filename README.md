@@ -50,6 +50,7 @@ https://portswigger.net/web-security/sql-injection/cheat-sheet
 
 ## JSON comentarios
 
+Los comentarios no son una norma oficial. Aunque algunos analizadores admiten comentarios de estilo C Uno que uso es JsonCpp . En los ejemplos hay este:
 Si está utilizando Jackson como su analizador JSON, así es como lo habilita para permitir comentarios:
 
 Entonces puedes tener comentarios como este:
