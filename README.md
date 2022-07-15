@@ -63,3 +63,6 @@ Entonces puedes tener comentarios como este:
 ```
 >https://www.wake-up-neo.com/es/json/se-pueden-usar-los-comentarios-en-json/958451077/#:~:text=JSON%20no%20admite%20comentarios.,archivo%20de%20configuraci%C3%B3n%20para%20humanos.
 
+# Debuger Code JS with DevTools
+
+> https://es.javascript.info/debugging-chrome
