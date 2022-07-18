@@ -47,6 +47,14 @@ https://portswigger.net/web-security/sql-injection/cheat-sheet
 ## Angle bracket
 
  Son los < o > 
+ 
+##  double quotes
+
+""
+
+## Quotes
+
+comillas simples ''
 
 ## JSON comentarios
 
