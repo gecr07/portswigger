@@ -14,3 +14,14 @@
 > Los transpilers, o compiladores fuente a fuente, son herramientas que leen el código fuente escrito en un lenguaje de programación y producen el código equivalente en otro lenguaje. React JS es un lenguaje de programación; pero aunque los navegadores no entienden React, sí entienden JavaScript. Esto significa que para que el navegador entienda el código React JS, primero se debe usar un transpilador para convertir el código React en código JavaScript nativo.
 
 > https://redsentry.com/javascript-source-maps/
+
+
+Osea se busca ver si esta pagina usa el mapeo de archivos para poder ver el codigo fuente original en busca de:
+
+-Claves API codificadas
+
+-Contraseñas codificadas
+
+-Defectos lógicos
+
+-XSS
