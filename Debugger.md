@@ -25,3 +25,9 @@ Osea se busca ver si esta pagina usa el mapeo de archivos para poder ver el codi
 -Defectos lógicos
 
 -XSS
+
+# Referencias
+
+> https://getmantra.com/web-app-security-testing-with-browsers/
+> https://www.youtube.com/watch?v=Y1S5s3FmFsI
+> 
