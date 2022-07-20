@@ -69,5 +69,21 @@ Para este ejemplo si cuenta la app con proteccion pero solo para el metodo post 
 </script>
 
 ```
+
+## CSRF where token validation depends on token being present
+
+En este caso si ves burp cuando se realiza la peticion y modificas el toquen CSRF no realiza la peticion pero si se lo quitas completamente entonces si
+cambia.
+
+
+```
+Mismo codigo que la peticion POST(arriba)
+```
+
+## CSRF where token is not tied to user session
+
+
+
+
 NOTA: Se puede utilizar la herramienta "csrf-poc-generator-master" para generar un poc de una peticion genera un script parecido.
 
