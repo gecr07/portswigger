@@ -44,6 +44,25 @@ https://portswigger.net/web-security/sql-injection/cheat-sheet
 
 # XSS
 
+Para el xss hay paginas que al ingresar caracteres escapan para queno puedas usarlos para inyectar codigo aqui se divide en 2
+
+## Url encode
+
+Es cuando tu ingresas una url y pasas paramentros se hacen asi %27 por ejemplo para el ' .
+
+> https://www.urldecoder.org/
+
+## HTML encode
+
+En el caso de las cadenas que se ingresan para ser procesadas por JS se hace un HTML encode es como cuando pones acentos &acute; o &amp; para el & o  el ' para ela pastrofe es &apos;.
+
+
+> En HTML, XHTML o XML, puede usar un carácter de escape para representar cualquier carácter Unicode usando solo letras ASCII. Los escapes de caracteres utilizados en el marcado incluyen referencias de caracteres numéricos (NCR) y referencias de caracteres con nombre. 
+
+> https://emn178.github.io/online-tools/html_encode.html
+> https://uniwebsidad.com/libros/xhtml/capitulo-3/codificacion-de-caracteres
+> https://mateam.net/html-escape-characters/
+
 ## Angle bracket
 
  Son los < o > 
