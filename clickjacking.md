@@ -1,5 +1,7 @@
 # Clickjacking
 
+## Basic clickjacking with CSRF token protection
+
 Un iframe permite cargar una pagina encima de otra de aqui proviene esta vulnerabilidad que se engaña al usuario a que haga clic en 
 un lugar donde no deberia haciendo el iframe trasparente. SOlo funciona si las paginas permiten iframes si los iframe are allow( frame en ingles els cuadro marco)
 
