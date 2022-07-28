@@ -316,8 +316,21 @@ Ya que el la sintaxis de src da error se ejecuta el alert.
   
 # XSS DOM with web Messages
  
+ Los WEB Messages son una manera en que las paginas se  comunican entre si y se originaron debido a que al bloquear el XSS se restringio la cominicacion y es por
+ eso que se inventaron.
+ 
+ ## Window.postMessage()
+ 
+ > The window.postMessage() method safely enables cross-origin communication between Window objects; e.g., between a page and a pop-up that it spawned, or between a page and an iframe embedded within it.
+ 
+ ## Same Origin Policie
+ 
+ > Normally, scripts on different pages are allowed to access each other if and only if the pages they originate from share the same protocol, port number, and host (also known as the "same-origin policy"). window.postMessage() provides a controlled mechanism to securely circumvent this restriction (if used properly).
+ 
+ 
  ```
- <iframe src="https://0a75006d04c0febcc05d5307001c00e0.web-security-academy.net/" onload="this.contentWindow.postMessage('<img src=1 onerror=print()>','*')">
+ <iframe src="https://0a75006d04c0febcc05d5307001c00e0.web-security-academy.net/" 
+ onload="this.contentWindow.postMessage('<img src=1 onerror=print()>','*')">
   
   ```
  
