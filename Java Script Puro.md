@@ -47,3 +47,37 @@ function displayDate() {
 > https://www.w3schools.com/js/js_htmldom_eventlistener.asp
 
 NOTA: Se pueden capturar cualquier evento generado por el usuario mousemove keyup doble click etc.
+
+## Enviar mensajes  postMessage()
+
+> postMessage() method safely enables cross-origin communication between Window objects; e.g., between a page and a pop-up that it spawned, or between a page and an iframe embedded within it
+
+## eval()
+
+> The eval() method evaluates or executes an argument.
+
+```
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Global Methods</h1>
+<h2>The eval() Method</h2>
+
+<p id="demo"></p>
+
+<script>
+let x = 10;
+let y = 20;
+let text = "x * y";
+let result = eval(text);
+
+document.getElementById("demo").innerHTML = result;
+</script>
+
+</body>
+</html>
+```
+
+Es un riesgo usar esta funcion de un input arbitrario.
+
