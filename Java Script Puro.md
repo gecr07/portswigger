@@ -81,3 +81,6 @@ document.getElementById("demo").innerHTML = result;
 
 Es un riesgo usar esta funcion de un input arbitrario.
 
+## indexOf() 
+
+El método indexOf() retorna el primer índice en el que se puede encontrar un elemento dado en el array, ó retorna -1 si el elemento no esta presente.
