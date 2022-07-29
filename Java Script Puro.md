@@ -45,3 +45,5 @@ function displayDate() {
 </html> 
 ```
 > https://www.w3schools.com/js/js_htmldom_eventlistener.asp
+
+NOTA: Se pueden capturar cualquier evento generado por el usuario mousemove keyup doble click etc.
