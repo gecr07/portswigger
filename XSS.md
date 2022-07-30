@@ -323,8 +323,23 @@ Ya que el la sintaxis de src da error se ejecuta el alert.
  
  > The window.postMessage() method safely enables cross-origin communication between Window objects; e.g., between a page and a pop-up that it spawned, or between a page and an iframe embedded within it.
  
- ## Same Origin Policie
+ # Cross-window communication
  
+ Esta es una proteccion llamada “Same Origin” lo que hace es: ***( bastante bien explicado)***
+ 
+ > The idea is that if a user has two pages open: one from john-smith.com, and another one is gmail.com, then they wouldn’t want a script from john-smith.com to read our mail from gmail.com. So, the purpose of the “Same Origin” policy is to protect users from information theft.
+ 
+Ejemplo
+ 
+ > Two URLs are said to have the “same origin” if they have the same protocol, domain and port.
+ ```
+
+http://site.com
+http://site.com/
+http://site.com/my/page.html
+
+ ```
+ > Fuente: https://javascript.info/cross-window-communication
  > Normally, scripts on different pages are allowed to access each other if and only if the pages they originate from share the same protocol, port number, and host (also known as the "same-origin policy"). window.postMessage() provides a controlled mechanism to securely circumvent this restriction (if used properly).
  
  
@@ -334,6 +349,21 @@ Ya que el la sintaxis de src da error se ejecuta el alert.
   
   ```
  
+  El codigo vulnerable es el siguiente
+  
+  ```
+  <script>
+window.addEventListener('message', function(e) {
+  eval(e.data);
+});
+</script>
+  
+  ```
+  
+  >As the event listener does not verify the origin of the message, and the postMessage() method specifies the targetOrigin "*", the event listener accepts the payload and passes it into a sink, in this case, the eval() function.
+  
+  
+  
   
 ## Referencias
 
