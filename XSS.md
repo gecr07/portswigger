@@ -432,9 +432,10 @@ Para pasar esta proteccion basta con cumplir la condicion e inyectar nuestro pay
   ```
   <iframe src="https://your-lab-id.web-security-academy.net/" onload="this.contentWindow.postMessage('javascript:print()//http:','*')">
    
-   ``
+   ```
    
-   Ponen el //http para cumplir la condicion del indexOf y pasar las protecciones el mensaje pasara y sera ejecutado.
+   Ponen el //http para cumplir la condicion del indexOf y pasar las protecciones el mensaje pasara y sera ejecutado al momento en que se actualiza el 
+   location.href.
   
 ## Referencias
 
