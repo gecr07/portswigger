@@ -252,7 +252,8 @@ Para evitar que roben las cookies:
 
 Un atacante pasaria este link
 
-> https://insecure-website.com/status?message=<script>/*+Bad+stuff+here...+*/</script>
+> https://insecure-website.com/status?message=<script>/
+ +Bad+stuff+here...+*/</script>
 > <p>Status: <script>/* Bad stuff here... */</script></p>
 
 
@@ -322,6 +323,9 @@ Ya que el la sintaxis de src da error se ejecuta el alert.
  ## Window.postMessage()
  
  > The window.postMessage() method safely enables cross-origin communication between Window objects; e.g., between a page and a pop-up that it spawned, or between a page and an iframe embedded within it.
+ 
+ > Beware: If “*” is used as targetOrigin, the message could be from anyone.
+ In other words, we may want to send a message from https://abcd.com to https://defg.com. So targetOrigin would be https://defg.com. and the recipient’s domain would be https://defg.com as well.
  
  postMessage cuenta con 2 argumentos el mensaje y el origen cuanod no se especifica que origen se pone un * por ejemplo:
  
