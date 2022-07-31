@@ -333,6 +333,8 @@ Ya que el la sintaxis de src da error se ejecuta el alert.
  iframe.contentWindow.postMessage(this.message.value, '*');
  ```
  
+ > Referencia https://javascript.plainenglish.io/javascript-and-window-postmessage-a60c8f6adea9
+ 
  # Cross-window communication
  
  Esta es una proteccion llamada “Same Origin” lo que hace es: ***( bastante bien explicado)***
