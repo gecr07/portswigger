@@ -323,6 +323,12 @@ Ya que el la sintaxis de src da error se ejecuta el alert.
  
  > The window.postMessage() method safely enables cross-origin communication between Window objects; e.g., between a page and a pop-up that it spawned, or between a page and an iframe embedded within it.
  
+ postMessage cuenta con 2 argumentos el mensaje y el origen cuanod no se especifica que origen se pone un * por ejemplo:
+ 
+ ```
+ iframe.contentWindow.postMessage(this.message.value, '*');
+ ```
+ 
  # Cross-window communication
  
  Esta es una proteccion llamada “Same Origin” lo que hace es: ***( bastante bien explicado)***
