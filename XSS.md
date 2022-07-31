@@ -411,6 +411,8 @@ Osea que pasaria cualquier url en donde se esta cargando en este caso use esta r
   
  > https://www.w3schools.com/jsref/prop_loc_href.asp
   
+Como ultimo ejercicio poner ***location.href*** en la consola para que te regrese la pagina donde estas.
+  
   ###  indexOf()  
   
 Busca un string dentro de una cadena y regresa su index si lo encuentra para este ejemplo se usa para intentar proteger el codigo siguiente
