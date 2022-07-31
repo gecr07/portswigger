@@ -375,6 +375,58 @@ window.addEventListener('message', function(e) {
   >As the event listener does not verify the origin of the message, and the postMessage() method specifies the targetOrigin "*", the event listener accepts the payload and passes it into a sink, in this case, the eval() function.
   
   
+##  DOM XSS using web messages and a JavaScript URL 
+  
+### Window location.href
+  
+  Regresa la url entra de la pagina ve este ejemplo
+  
+  ```
+  <!DOCTYPE html>
+<html>
+<body>
+
+<h1>The Window Location Object</h1>
+<h2>The href Property</h2>
+
+<p id="demo"></p>
+
+<script>
+let url = location.href;
+document.getElementById("demo").innerHTML = url;
+</script>
+
+</body>
+</html>
+
+  ```
+  
+  el resultado es 
+  
+  ```
+  https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_loc_href
+  
+  ````
+Osea que pasaria cualquier url en donde se esta cargando en este caso use esta referencia
+  
+ > https://www.w3schools.com/jsref/prop_loc_href.asp
+  
+  ###  indexOf()  
+  
+Busca un string dentro de una cadena y regresa su index si lo encuentra para este ejemplo se usa para intentar proteger el codigo siguiente
+verifica si el origen tiene ese string si lo tiene ejecuta la data que se envia de postmessage de otra manera no.
+  
+```
+  window.addEventListener('message', function(e) {
+    if (e.origin.indexOf('normal-website.com') > -1) {
+        eval(e.data);
+    }
+});
+  
+```
+  
+Para pasar esta proteccion basta con cumplir la condicion e inyectar nuestro payload
+  
   
   
 ## Referencias
