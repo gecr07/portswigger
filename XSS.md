@@ -429,7 +429,12 @@ verifica si el origen tiene ese string si lo tiene ejecuta la data que se envia 
   
 Para pasar esta proteccion basta con cumplir la condicion e inyectar nuestro payload
   
-  
+  ```
+  <iframe src="https://your-lab-id.web-security-academy.net/" onload="this.contentWindow.postMessage('javascript:print()//http:','*')">
+   
+   ``
+   
+   Ponen el //http para cumplir la condicion del indexOf y pasar las protecciones el mensaje pasara y sera ejecutado.
   
 ## Referencias
 
