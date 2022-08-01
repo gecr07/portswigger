@@ -436,7 +436,20 @@ Para pasar esta proteccion basta con cumplir la condicion e inyectar nuestro pay
    
    Ponen el //http para cumplir la condicion del indexOf y pasar las protecciones el mensaje pasara y sera ejecutado al momento en que se actualiza el 
    location.href.
-  
+   
+   
+# DOM XSS using web messages and JSON.parse
+   
+   Para este laboratorio se usa de nuevo los mensajes y se inspecciona el codgigo y nos damos cuenta que se podria ejecutar JS Nota: e visto que siempre
+   que se ve algo asi " ACMEplayer.element.src = d.url;" se puede ejecutar.
+   
+   ```
+   <iframe src=https://your-lab-id.web-security-academy.net/ onload='this.contentWindow.postMessage("{\"type\":\"load-channel\",\"url\":\"javascript:print()\"}","*")'>
+   ```
+   
+   el nodo de JSON padre es el type y en los hijos es donde podemos inyectar el codigo cabe destacar que la comilla simple no se escapa en JSON sin enmbargo la comillas dobles si de esta maneta \" es por eso que el payload.
+    
+    
 ## Referencias
 
 > https://portswigger.net/web-security/cross-site-scripting
