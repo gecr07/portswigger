@@ -50,8 +50,8 @@ Origin : https://normal-website.com
 
 ```
 
-***Conclucion*** el CORS se configura del lado del servidor y a las dos partes se le llama origen posea si voy a hacer una peticion desde mipagina.com el origuen seria ese
-a mi serverapi.com (pero este tambien tiene un campo origen cuando se manda la respuesta y el origen seria serverapi.com) ahora al enviar esa peticion el servidor
+***Conclucion***: El CORS se configura del lado del servidor y a las dos partes se le llama origen (Cliente y Servidor) osea si voy a hacer una peticion desde mipagina.com el origuen seria ese
+a mi serverapi.com (pero este tambien tiene un campo origen cuando se manda la respuesta y el origen seria serverapi.com pero al enviar la respuesta) ahora al enviar esa peticion el servidor
 revisa si este origen tiene permisos para pedir datos del servidor( para apis por ejemplo la poken api queremos que todos puedan solicitar datos entonces se usa el asterisco
 en la Access-Control-Allow-Origin:*) si no los tiene pues regresa el error de CORS si si esta permitido ese "origen" pues regresa los datos.
 
