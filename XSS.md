@@ -451,6 +451,15 @@ Para pasar esta proteccion basta con cumplir la condicion e inyectar nuestro pay
     
 > https://stackoverflow.com/questions/2275359/jquery-parsejson-throws-invalid-json-error-due-to-escaped-single-quote-in-json/2275428#2275428
     
+# DOM-based open redirection
+    
+    Este no lo entendi bien investigar
+    
+```
+ https://your-lab-id.web-security-academy.net/post?postId=4&url=https://your-exploit-server-id.web-security-academy.net/
+    
+```    
+    
 ## Referencias
 
 > https://portswigger.net/web-security/cross-site-scripting
