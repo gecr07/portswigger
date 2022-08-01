@@ -449,6 +449,7 @@ Para pasar esta proteccion basta con cumplir la condicion e inyectar nuestro pay
    
    el nodo de JSON padre es el type y en los hijos es donde podemos inyectar el codigo cabe destacar que la comilla simple no se escapa en JSON sin enmbargo la comillas dobles si de esta maneta \" es por eso que el payload.
     
+> https://stackoverflow.com/questions/2275359/jquery-parsejson-throws-invalid-json-error-due-to-escaped-single-quote-in-json/2275428#2275428
     
 ## Referencias
 
