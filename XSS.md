@@ -459,6 +459,12 @@ Para pasar esta proteccion basta con cumplir la condicion e inyectar nuestro pay
  https://your-lab-id.web-security-academy.net/post?postId=4&url=https://your-exploit-server-id.web-security-academy.net/
     
 ```    
+# DOM-based cookie manipulation
+    
+Investigar no se entendio
+    
+    
+    
     
 ## Referencias
 
