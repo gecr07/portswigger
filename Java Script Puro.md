@@ -88,6 +88,8 @@ El método indexOf() retorna el primer índice en el que se puede encontrar un e
 ## XMLHttpRequest
 
 Sirve para hacer peticiones sincronas o asincronas a una url el codigo basico es:
+> XMLHttpRequest es un objeto nativo del navegador que permite hacer solicitudes HTTP desde JavaScript.
+A pesar de tener la palabra “XML” en su nombre, se puede operar sobre cualquier dato, no solo en formato XML. Podemos cargar y descargar archivos, dar seguimiento y mucho más.
 
 ```
 // Creamos un nuevo XMLHttpRequest
@@ -110,7 +112,5 @@ xhttp.open("GET", "https://pokeapi.co/api/v2/pokemon/ditto", true);
 xhttp.send(null);
 
 console.log(fetch("https://pokeapi.co/api/v2/pokemon/ditto"))
-
-
 
 ```
