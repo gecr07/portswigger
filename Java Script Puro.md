@@ -236,13 +236,92 @@ fetch('test.txt')
 function ajaxPositive(response) {
   console.log('response.ok: ', response.ok); // la propiedad "ok" de la respuesta nos ofrece información sobre si la solicitud produjo una respuesta con un código //positivo (un status 200 o similar) en el protocolo HTTP. La propiedad "status" nos ofrece el código de respuesta del servidor (200, 404, 500, etc.).
   if(response.ok) {
-    response.text().then(showResult);
+    response.text().then(showResult); // Accediendo mediante el metodo text()
   } else {
     showError('status code: ' + response.status);
     return false;
   }
 }
 
+function showResult(txt) {
+  console.log('muestro respuesta: ', txt);
+}
+
 ```
+
+Para el codigo completo:
+
+```
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Fetch</title>
+</head>
+<body>
+  <button id="btn">Hacer una conexión con Ajax</button>
+  
+  <script>
+  document.addEventListener('DOMContentLoaded', configureAjaxCalls);
+
+  function configureAjaxCalls() {
+    document.getElementById('btn').addEventListener('click', function() {
+      fetch('test.txt')
+        .then(ajaxPositive)
+        .catch(showError);
+    });
+
+    function ajaxPositive(response) {
+      console.log('response.ok: ', response.ok);
+      if(response.ok) {
+        response.text().then(showResult);
+      } else {
+        showError('status code: ' + response.status);
+      }
+    }
+
+    function showResult(txt) {
+      console.log('muestro respuesta: ', txt);
+    }
+
+    function showError(err) { 
+      console.log('muestor error', err);
+    }
+  }
+  </script>
+</body>
+</html>
+```
+
+
+
+## Acceder al texto de la respuesta de Ajax con fetch
+
+Para acceder a la respuesta se usa la el metodo text 
+>El método que nos devuelve el texto del servidor se llama text(). Es un método existente en el objeto de la respuesta recibida. Sin embargo, acceder al contenido de la respuesta, el texto que el servidor nos envía, no es tan trivial. El motivo es que el método text() devuelve otra promesa, lo que nos obliga a tratarla de nuevo con el correspondiente then / catch.
+
+Para accder a la informacion de una api necesitamos checar la respuesta despues s es positiva sacarla con otra pormesa del metodo teext() de la siguiente manera:
+
+```
+fetch('https://randomuser.me/api/?results=10')
+  .then( response => {
+    if(response.status == 200) {
+      return response.text();
+    } else {
+      throw "Respuesta incorrecta del servidor" 
+    }
+  })
+  .then( responseText => {
+    let users = JSON.parse(responseText).results;
+    console.log('Este es el objeto de usuarios', users);
+  })
+  .catch( err => {
+    console.log(err);
+  });
+  
+  ```
 
 
