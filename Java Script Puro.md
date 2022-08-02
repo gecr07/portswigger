@@ -219,3 +219,30 @@ Mismo codigo pero siin arrow funcions
 
 > Su uso más simple consiste en pasarle una URL, cuyo contenido se traerá el cliente web de manera asíncrona.
 fetch basa su trabajo en promesas ES6, por lo que nos devolverá una promesa que podemos tratar tal como estamos acostumbrados a hacer, con el "then" y el "catch".
+
+Sintaxis basica con codigo completo
+
+```
+
+
+fetch('test.txt')
+  .then(ajaxPositive)
+  .catch(showError);
+  
+  function showError(err) { 
+  console.log('muestor error', err);
+}
+
+function ajaxPositive(response) {
+  console.log('response.ok: ', response.ok); // la propiedad "ok" de la respuesta nos ofrece información sobre si la solicitud produjo una respuesta con un código //positivo (un status 200 o similar) en el protocolo HTTP. La propiedad "status" nos ofrece el código de respuesta del servidor (200, 404, 500, etc.).
+  if(response.ok) {
+    response.text().then(showResult);
+  } else {
+    showError('status code: ' + response.status);
+    return false;
+  }
+}
+
+```
+
+
