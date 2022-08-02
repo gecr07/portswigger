@@ -55,4 +55,18 @@ a mi serverapi.com (pero este tambien tiene un campo origen cuando se manda la r
 revisa si este origen tiene permisos para pedir datos del servidor( para apis por ejemplo la poken api queremos que todos puedan solicitar datos entonces se usa el asterisco
 en la Access-Control-Allow-Origin:*) si no los tiene pues regresa el error de CORS si si esta permitido ese "origen" pues regresa los datos.
 
+## XMLHttpRequest.withCredentials
+
+> La propiedad XMLHttpRequest.withCredentials es un valor booleano que indica si se deben realizar o no solicitudes de Access-Control sitios utilizando credenciales como cookies, encabezados de autorización o certificados de cliente TLS. La configuración con withCredentials no tiene ningún efecto en las solicitudes del mismo sitio.
+
+> https://runebook.dev/es/docs/dom/xmlhttprequest/withcredentials
+
+```
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'http://example.com/', true);
+xhr.withCredentials = true;
+xhr.send(null
+
+```
+
 
