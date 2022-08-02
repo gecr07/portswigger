@@ -191,4 +191,31 @@ hacerAlgoPromesa()
   })
   
   ```
+  Ejemplo de promesa ES6:
+  
+```
+   fetch('https://pokeapi.co/api/v2/pokemon/ditto')
+  .then( response => response.text() )
+  .then( resultText => console.log(resultText) )
+  .catch( err => console.log(err) );
+
+```  
+
+Mismo codigo pero siin arrow funcions
+
+```
+   fetch('https://pokeapi1.co/api/v2/pokemon/ditto')
+  .then( function res (response) { return response.text(); })
+  .then( function rest (resultText) {console.log(resultText)})
+  .catch( function (err) {console.log("Hubo un error dude");console.log(err)});
+  
+```  
+
+
   > https://desarrolloweb.com/articulos/introduccion-promesas-es6.html
+
+
+# Fetch ( mas nuevo que XMLHttpRequest())
+
+> Su uso más simple consiste en pasarle una URL, cuyo contenido se traerá el cliente web de manera asíncrona.
+fetch basa su trabajo en promesas ES6, por lo que nos devolverá una promesa que podemos tratar tal como estamos acostumbrados a hacer, con el "then" y el "catch".
