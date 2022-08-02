@@ -115,7 +115,7 @@ console.log(fetch("https://pokeapi.co/api/v2/pokemon/ditto"))
 
 ```
 
-## Promesas
+# Promesas
 
 Para manejar promesas se tienen dos estados basicos por asi decirlo el 
 
@@ -138,10 +138,57 @@ Ejemplo
   ```
   
   Para entender mejor el codigo esta encadenado y el codigo de arriba solo es para darle mejor visibilidad pero seria lo mismo sin espacios como aqui
+  NOTA: No es nesario pasar ninguno de los dos y la promesa funcionaria
   
   ```
   referenciaFirebase.set(data).then(function(){console.log('el dato se ha escrito correctamente');}).catch(function(err) {console.log('hemos detectado un error',err')});
 
 ```
   
+ ## Retorno de datos
  
+ En el caso de las promesas cuanod se va a leer usalmente cuanod se escribe no pero podria ser las promesas regresan datos
+ > En el caso que la promesa te devuelva un dato, lo podrás recibir como parámetro en la función callback que estás adjuntando al then().
+
+```
+funcionQueDevuelvePromesa()
+  .then( function(datoProcesado){
+    //hacer algo con el datoProcesado
+  })
+  ```
+  
+  ## Crear nuestras popias promesas
+  
+  Para crear nuestras promesas que van a hacer algo y regresar exito o fracaso se regresa el objeto promise comoen el siguiente ejemplo:
+  
+  ```
+  function hacerAlgoPromesa() {
+  return new Promise( function(resolve, reject){
+    console.log('hacer algo que ocupa un tiempo...');
+    setTimeout(resolve, 1000);
+  })
+}
+```
+Ese codigo es lo mismo que este:
+
+```
+function hacerAlgoPromesa(tarea) {
+  function haciendoalgo(resolve, reject) {
+    console.log('hacer algo que ocupa un tiempo...');
+    setTimeout(resolve, 1000);
+  }
+  return new Promise( haciendoalgo );
+}
+```
+
+Se ejecutaria asi:
+
+```
+
+hacerAlgoPromesa()
+  .then( function() {
+    console.log('la promesa terminó.');
+  })
+  
+  ```
+  
