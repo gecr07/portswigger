@@ -84,3 +84,33 @@ Es un riesgo usar esta funcion de un input arbitrario.
 ## indexOf() 
 
 El método indexOf() retorna el primer índice en el que se puede encontrar un elemento dado en el array, ó retorna -1 si el elemento no esta presente.
+
+## XMLHttpRequest
+
+Sirve para hacer peticiones sincronas o asincronas a una url el codigo basico es:
+
+```
+// Creamos un nuevo XMLHttpRequest
+var xhttp = new XMLHttpRequest();
+
+// Esta es la función que se ejecutará al finalizar la llamada
+xhttp.onreadystatechange = function() { // Ay que usar esto para saber cuando esta lista
+  // Si nada da error
+  if (this.readyState == 4  && this.status == 200) {//this.readyState == 4 xhr.readyState == DONE y el otro statud 200 de codigo http
+    // La respuesta, aunque sea JSON, viene en formato texto, por lo que tendremos que hace run parse
+    //console.log(JSON.parse(this.responseText));
+    //console.log(xhttp.responseText);
+  }
+};
+
+// Endpoint de la API y método que se va a usar para llamar
+xhttp.open("GET", "https://pokeapi.co/api/v2/pokemon/ditto", true);
+//xhttp.setRequestHeader("Content-type", "application/json");
+// Si quisieramos mandar parámetros a nuestra API, podríamos hacerlo desde el método send()
+xhttp.send(null);
+
+console.log(fetch("https://pokeapi.co/api/v2/pokemon/ditto"))
+
+
+
+```
