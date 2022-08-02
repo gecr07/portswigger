@@ -114,3 +114,34 @@ xhttp.send(null);
 console.log(fetch("https://pokeapi.co/api/v2/pokemon/ditto"))
 
 ```
+
+## Promesas
+
+Para manejar promesas se tienen dos estados basicos por asi decirlo el 
+
+> then: usado para indicar qué hacer en caso que la promesa se haya ejecutado con éxito.
+> catch: usado para indicar qué hacer en caso que durante la ejecución de la operación se ha producido un error.
+
+Las promesas regresan datos en un periodo de tiempo. Ambos métodos debemos usarlos pasándoles la función callback a ejecutar en cada una de esas posibilidades
+
+Ejemplo
+
+ ```
+ referenciaFirebase.set(data)
+  .then(function(){
+    console.log('el dato se ha escrito correctamente');
+  })
+  .catch(function(err) {
+    console.log('hemos detectado un error', err');
+  });
+  
+  ```
+  
+  Para entender mejor el codigo esta encadenado y el codigo de arriba solo es para darle mejor visibilidad pero seria lo mismo sin espacios como aqui
+  
+  ```
+  referenciaFirebase.set(data).then(function(){console.log('el dato se ha escrito correctamente');}).catch(function(err) {console.log('hemos detectado un error',err')});
+
+```
+  
+ 
