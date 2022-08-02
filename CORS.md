@@ -69,4 +69,9 @@ xhr.send(null
 
 ```
 
+# CORS vulnerability with basic origin reflection
+
+
+
+
 
