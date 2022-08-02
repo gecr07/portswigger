@@ -93,3 +93,7 @@ Entonces puedes tener comentarios como este:
 # Debuger Code JS with DevTools
 
 > https://es.javascript.info/debugging-chrome
+
+# CORS y http.server python
+
+> https://stackoverflow.com/questions/21956683/enable-access-control-on-simple-http-server
