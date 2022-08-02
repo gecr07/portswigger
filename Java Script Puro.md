@@ -191,4 +191,4 @@ hacerAlgoPromesa()
   })
   
   ```
-  
+  > https://desarrolloweb.com/articulos/introduccion-promesas-es6.html
