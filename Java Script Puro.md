@@ -315,7 +315,7 @@ fetch('https://randomuser.me/api/?results=10')
     }
   })
   .then( responseText => {
-    let users = JSON.parse(responseText).results;
+    let users = JSON.parse(responseText);
     console.log('Este es el objeto de usuarios', users);
   })
   .catch( err => {
@@ -323,5 +323,6 @@ fetch('https://randomuser.me/api/?results=10')
   });
   
   ```
+  
 
-
+> https://desarrolloweb.com/articulos/fetch-ajax-javascript.html
