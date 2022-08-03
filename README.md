@@ -97,3 +97,14 @@ Entonces puedes tener comentarios como este:
 # CORS y http.server python
 
 > https://stackoverflow.com/questions/21956683/enable-access-control-on-simple-http-server
+
+# Document.cookie
+
+Si alguna vez se bloquea el punto puedes usar:
+
+```
+document['cookie']
+
+```
+Es lo mismo ya que al ser un objeto actua como un diccionario
+
