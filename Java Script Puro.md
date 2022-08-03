@@ -370,3 +370,22 @@ Referencia de redirecciones
 
 > https://www.delftstack.com/es/howto/javascript/javascript-redirect/#:~:text=JavaScript%20redirecciona%20una%20p%C3%A1gina%20web%20con%20location.,-href()&text=El%20truco%20consiste%20en%20reemplazar,por%20lo%20tanto%2C%20la%20redireccionar%C3%A1.
 
+> https://es.acervolima.com/javascript-objetos-window-location-y-document-location/
+
+# Promesas con asyc y wait
+
+La sintaxis basica es la siguiente y el punto es que la primesa va dentro de una funcion de tipo async y dentro la parte donde se llama
+va el await lo que se diferencia de la sintaxis basico es que await forza a la promesa a que regrese afuerzas algo y que pues el codigo es mas limpio.
+
+```
+
+const buscarPaisYVecinos = async () => {
+  const colombia = await buscarPais("col");
+
+  console.log(colombia);
+};
+
+buscarPaisYVecinos();
+
+```
+
