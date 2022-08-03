@@ -161,3 +161,4 @@ para generar un origen null se usa un iframe.
 </html>
 	
 ```	
+Para crear un ataque real necesitariamos tener un servidor y que el administrador de clic.
