@@ -323,6 +323,45 @@ fetch('https://randomuser.me/api/?results=10')
   });
   
   ```
-  
-
+ 
 > https://desarrolloweb.com/articulos/fetch-ajax-javascript.html
+
+# Document.location vs Window.location
+
+> window.location y document.location: estos objetos se utilizan para obtener la URL (la dirección de la página actual o actual) y desviar el navegador a una nueva página o ventana. La principal diferencia entre ambos es su compatibilidad con los navegadores.
+
+Entonces analisando el parrafo anterior es un objeto entonses si le hacemo un "console.log(windows.location/document.location)" regresara un objeto recordar que los
+objetos en Java Script son como JSON.
+
+```
+console.log(window.location/document.location)// e imprime el objeto
+Location {ancestorOrigins: DOMStringList, href: 'https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Working_with_Objects', origin: 'https://developer.mozilla.org', protocol: 'https:', host: 'developer.mozilla.org', …}
+
+```
+
+En la ciberseguridad he visto que se usan para redireccionar las paginas por ejemplo:
+
+```
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+		document.location = "https://www.google.com.mx/";
+
+		//window.location.href = "https://www.delftstack.com/howto/";
+
+	</script>
+
+</body>
+</html>
+
+```
+
+
