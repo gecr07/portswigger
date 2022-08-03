@@ -98,13 +98,13 @@ Entonces puedes tener comentarios como este:
 
 > https://stackoverflow.com/questions/21956683/enable-access-control-on-simple-http-server
 
-# Document.cookie
+# WAF bypass 
 
 Si alguna vez se bloquea el punto puedes usar:
 
 ```
 document['cookie']
-
+document['location']
 ```
 Es lo mismo ya que al ser un objeto actua como un diccionario
 
