@@ -162,3 +162,15 @@ para generar un origen null se usa un iframe.
 	
 ```	
 Para crear un ataque real necesitariamos tener un servidor y que el administrador de clic.
+
+# CORS vulnerability with trusted insecure protocols
+
+En este lab al entrar en la cuenta vuelbe a  jalar los datos de accountDetails mediante una peticion GET. Si analizamos esa peticion con el burp
+nos damos cuenta que tiene la cabecera de Access-Controls-Allow-Credentials lo que signnifica que el servidor usa CORS para verificar los origenes.
+Para rpobar la vulnerabilidad en el reapeter ponemos el origen en la peticion ponemos null ponemos un dominio ejemplo y nos damos cuenta que no se ve 
+reflejado por lo tanto probamos con subdominios.
+***
+En este caso la respuesta se ve reflejada cuando se usa un dominio no al final si no al inciio de este tipo ***"ramdom.urloriginal.net"***
+cuando se envia la peticion esta es exitosa
+
+
