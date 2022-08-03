@@ -364,4 +364,9 @@ En la ciberseguridad he visto que se usan para redireccionar las paginas por eje
 
 ```
 
+Entonces en cuanto el usuario ingrese a esa pagina la misma pagina redireccionara al usuario al valor de location.
+
+Referencia de redirecciones
+
+> https://www.delftstack.com/es/howto/javascript/javascript-redirect/#:~:text=JavaScript%20redirecciona%20una%20p%C3%A1gina%20web%20con%20location.,-href()&text=El%20truco%20consiste%20en%20reemplazar,por%20lo%20tanto%2C%20la%20redireccionar%C3%A1.
 
