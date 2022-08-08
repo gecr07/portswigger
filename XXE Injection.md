@@ -235,6 +235,59 @@ exfiliar informacion.
   ```
   Y nos regresa el error y el archivo /etc/passwd procesado en el burp al enviar la peticion usando el repeater.
   
+  # Exploiting XInclude to retrieve files
+  
+  Para este lab se hace uso de un concepto nuevo incluir un archivo y para esto se usan los name spaces
+  
+  ## Namespaces
+  
+  >To use a namespace, you first associate the URI with a namespace:
+  >This defines foo as the prefix for the namespace for that element tag. The attribute prefixed with xmlns works like a command to say "link the following letters to a URI". As no well-formed document can contain two identical attributes, the part that appears after the colon stops the same prefix being defined twice simultaneously.
+  
+  ```
+  <foo:tag xmlns:foo="http://me.com/namespaces/foofoo">.
+    
+  ```
+  
+  Ejemplo:
+    
+```
+    <foo:tag xmlns:foo="http://me.com/namespaces/foofoo"> 
+
+ 
+
+  <foo:head> 
+
+    <foo:title>An example document</foo:title> 
+
+  </foo:head> 
+
+ 
+    
+``` 
+    
+      
+Regresando al laboratorio obtenemos una peticion post en los productos y con la extencion de content converter type probamos si
+acepta xml o acepta JSON en este caso no acepta ninguno de los dos como tal. Para checar si acepta o ams bien procesa XML intentamos meter una
+entity que no existe con ayuda del repeter enviamos:
+      
+      
+``` 
+   
+      productId=%25noexistenentity
+      ponemos url ENCODE  %25 es el & para que no crea que enviamos otro parametro de la query
+      
+```   
+      
+Nos regresa un error que dice que " las entidades externas estan desabilitadas" entonces con eso sabemos que dentro esta procesando 
+XML.
+
+```
+      
+productId=<foo xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="text" href="file:///etc/passwd"/></foo>&storeId=2
+```       
+Entonces hacemos uso de xi definido como namespace en ""http://www.w3.org/2001/XInclude". Con lo cual nos regresa el contenido de passwd.  
+    
 ***Referencias***
 
 Validador de XML
