@@ -204,7 +204,7 @@ exfiliar informacion.
 ]>
   
   ```
-  
+  Revisamos en el burp colaborator y en la http reques se paso la solicion como query ?valor
   
 ***Referencias***
 
