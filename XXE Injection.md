@@ -222,6 +222,8 @@ exfiliar informacion.
 %exfil;
   
   ```
+  
+  NOTA el Unicode Hex Character Code &#x25; es el valor de % html encode lo que descubri que es el valor en hex de los simbolos.
   Nos regresa un erro y un hola mundo entonces se sopecha que puede procesar datos.
   
   ```
@@ -287,6 +289,8 @@ XML.
 productId=<foo xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="text" href="file:///etc/passwd"/></foo>&storeId=2
 ```       
 Entonces hacemos uso de xi definido como namespace en ""http://www.w3.org/2001/XInclude". Con lo cual nos regresa el contenido de passwd.  
+      
+      > https://www.sitepoint.com/xml-namespaces-explained/
     
 ***Referencias***
 
