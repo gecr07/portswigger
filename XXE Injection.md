@@ -180,7 +180,10 @@ exfiliar informacion.
   
   ```
   
-Referencias
+  
+  
+  
+***Referencias***
 
 Validador de XML
   
