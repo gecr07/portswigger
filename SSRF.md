@@ -61,6 +61,36 @@ stockApi=http://127.1/%25%36%31%25%36%34%25%36%64%25%36%39%25%36%65/delete?usern
 ```
 FIN
 
+# SSRF with filter bypass via open redirection vulnerability
+
+Para este lab se tienen que hacer uso de varios conceptos como:
+
+## Open Redirect
+
+> An open redirect vulnerability occurs when an application allows a user to control a redirect or forward to another URL. If the app does not validate untrusted user input, an attacker could supply a URL that redirects an unsuspecting victim from a legitimate domain to an attacker's phishing site.
+
+Si intentamos hacer SSRF nos damos cuenta que no se puede pero si te das cuenta existe un boton de next item el cual tiene un path que se pasa como argumento
+
+```
+GET /product/nextProduct?currentProductId=1&path=https://ww.google.com/ HTTP/1.1
+
+```
+
+Si vamos a la pagina que checa el stock nos damos cuenta que tambien ve en la ruta /product:
+
+
+```
+stockApi=/product/stock/check?productId=1&storeId=1
+
+```
+Entonces recordando como se pasa la informacion en html(tarea eso y lo de los forms) nos da la idea que quiza podemos usar la redireccion desde aqui.
+Usar el URL encode para esta peticion pero tambien observar que si visitas el /admin si lo visita y nos muestra el panel de control.
+
+
+```
+/product/nextProduct?path=http://192.168.0.12:8080/admin/delete?username=carlos
+```
+Finalmente nos damos cuenta que se se puede y borramos el usuario
 
 Referencia
 
