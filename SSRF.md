@@ -25,7 +25,7 @@ recordar usar el url encode.
 
 
 ```
-stockApi=http://192.168.0.4:8080/admin/delete?username=carlos
+stockApi=http://192.168.0.estenumerovaria:8080/admin/delete?username=carlos
 
 ```
 
