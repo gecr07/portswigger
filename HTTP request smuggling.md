@@ -133,8 +133,10 @@ x=1
 
 
 ```
-
 Recuerda que los salto de liena son dos caracteres por eso es 4 y en el caso del final son 4 caracteres \r\n\r\n. 
 Referencias 
+
+
+
 
 > https://portswigger.net/web-security/request-smuggling
