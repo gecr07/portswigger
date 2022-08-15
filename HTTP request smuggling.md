@@ -22,7 +22,7 @@ q=smuggling
 
 ```
 
-***En este ejemplo vale la pena recalcar que Content-Length manda la informacion en bytes y que en formato hex cada caracter equivale a 4 bits y cada caracter se forma por lo regular de 2 numeros hex por ejemplo 2e (el punto) entonces cada caracter ascii equivaldria a un byte****
+### ***En este ejemplo vale la pena recalcar que Content-Length manda la informacion en bytes y que en formato hex cada caracter equivale a 4 bits y cada caracter se forma por lo regular de 2 numeros hex por ejemplo 2e (el punto) entonces cada caracter ascii equivaldria a un byte****
 
 
 
