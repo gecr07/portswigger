@@ -43,7 +43,7 @@ q=smuggling
 ### En este caso recordar que la cabecera Transfer-Encoding pasa datos de la siguiente maneja en salto de linea despues el valor en hex del tamaño de datos a pasar  + salto de linea +
 despues los datos en si ( b es 11 en hex) y al final ya cuando no se enviaran mas datos pone un 0 y el salto de linea y asi se acaba.
 
-## ***En Resumen*** http request smuggling es pasar de contrabando una solicitud al servidor de back-end, de modo que la próxima solicitud procesada por el servidor de back-end parezca usar el método GPOST u otra que tu definas porque no se engaña de donde termina.
+## ***En Resumen*** http request smuggling es pasar de contrabando una solicitud al servidor de back-end, de modo que la próxima solicitud procesada por el servidor de back-end parezca usar el método GPOST u otra. Todo esto aprovechando que no se sabe donde acaba la primera solicitud. ( esta algo dificil de comprender)
 
 # Casos que se pueden encontrar 
 
