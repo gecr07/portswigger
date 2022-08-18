@@ -1,4 +1,3 @@
-
 # HTTP request smugglin 
 
 > El contrabando de solicitudes HTTP es una técnica para interferir con la forma en que un sitio web procesa secuencias de solicitudes HTTP que se reciben de uno o más usuarios.
@@ -64,6 +63,28 @@ Donde el front end usa el Transfer-Encoding header e igualmente el back end Tran
 # Burp  HTTP Request Smuggler
 
 Para trabajar con esta vulnerabilidad te recomiendan utilizar esta extencion de burp.
+
+
+# Manually Calculate HTTP Content Length
+
+```
+HTTP/1.1 200 OK
+Server: nginx
+Content-Type: text/plain
+Content-Length: 6
+
+Hello!
+```
+
+Para medir el content length manualmente se calcula despues de los saltos de linea 
+
+```
+485454502f312e3120323030204f4b0a5365727665723a206e67696e780a436f6e74656e742d547970653a20746578742f706c61696e0a436f6e74656e742d4c656e6774683a2036***0d0a0d0a***48656c6c6f21
+````
+
+The bytes after "0d0a0d0a" will be used to calculate the content length. As bytes are represented with two hexadecimal digits, one can divide the number of digits by two to obtain the content length (There are 12 hexadecimal digits in "48656c6c6f21" which equates to six bytes, as indicated in the header "Content-Length: 6" sent from the server). While one may have merely counted the characters in the string, "Hello!", HTTP bodies frequently include non-printable characters (such as spaces and line-endings), compressed payloads, and other data.
+
+> https://support.f5.com/csp/article/K36105252
 
 # HTTP request smuggling, basic CL.TE vulnerability
 
