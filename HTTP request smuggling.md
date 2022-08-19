@@ -86,6 +86,13 @@ The bytes after "0d0a0d0a" will be used to calculate the content length. As byte
 
 > https://support.f5.com/csp/article/K36105252
 
+## Transfer-Encoding
+El encabezado Transfer-Encoding especifica la forma de codificación utilizada para transferir de forma segura el cuerpo del payload (en-US) al usuario.
+
+### chunked
+
+Los datos se envían en una serie de fragmentos. ***El encabezado Content-Length se omite en este caso**** y al comienzo de cada fragmento debe agregar la longitud del fragmento actual en formato hexadecimal, seguido de '\r\n' y luego el trozo en sí, seguido de otro '\r\n'. ***El trozo de terminación es un trozo regular, con la excepción de que su longitud es cero.*** Le sigue el avance, que consiste en una secuencia (posiblemente vacía) de campos de encabezado de entidad.
+
 # HTTP request smuggling, basic CL.TE vulnerability
 
 
@@ -302,5 +309,12 @@ x=
 ```
 
 Se borra el usuario carlos y se resuelve el lab
+
+
+# 
+
+
+
+
 
 > https://portswigger.net/web-security/request-smuggling
