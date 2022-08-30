@@ -119,6 +119,10 @@ Finalmente podemos ejecutar comandos con:
 Borrando el archivo ( recuerda usar URL encode)
 
 
+# Basic server-side template injection (code context)
+
+Par  este  laboratorio se tiene que pensar de la siguiente mannera 
+
 
 
 
