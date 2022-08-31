@@ -121,10 +121,28 @@ Borrando el archivo ( recuerda usar URL encode)
 
 # Basic server-side template injection (code context)
 
-Par  este  laboratorio se tiene que pensar de la siguiente mannera 
+Par  este  laboratorio se tiene que pensar de la siguiente mannera. Primero se va a la funcionalidad de "Preferred name"
+dentro de esta se manda una parte "user.name"  que va variando segun el selelct.
+
+1. Primero reconocemos que ahi puede haber un ssti.
+2. Intentamos hacer fallar a la aplicacion para que nos de informacion user.noexist
+
+```
+"/usr/local/lib/python2.7/dist-packages/tornado/template.py"
+```
+3. Indentificamos que el template engine es tornado entonces vamos a trabajar con esa sintaxis.
+
+4. Usamos la sintaxis de tornado
+
+Cerramos el string con }} despues importamos un os y un system y el comando en la funcionalidad.
 
 
+```
+blog-post-author-display=user.first_name}}{% import os %}{{os.system('pwd')}}&csrf=3zrIydtzhGhCcccm3tjhQhR22U7nxYqs
 
+```
+
+Por ultimo mandar la solicitud desde la pagina de la funcionalidad y recargar la otra finalmente borrar el archivo y asi se resuelve.
 
 
 
