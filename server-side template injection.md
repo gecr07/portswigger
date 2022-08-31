@@ -145,6 +145,22 @@ blog-post-author-display=user.first_name}}{% import os %}{{os.system('pwd')}}&cs
 Por ultimo mandar la solicitud desde la pagina de la funcionalidad y recargar la otra finalmente borrar el archivo y asi se resuelve.
 
 
+# Server-side template injection using documentation
+
+Este laboratorio es similar a el anterior
+
+1. Primero iniciamos sesion e identificamos donde podria haber un ssti. En este caso identificacamos que en "Edit Template" 
+Quiza podriamos inyectar algo 
+2. Hacemos falla el template engine poniendo algo que no existe y ver a que nos efrentamos
+3. freemarker es el template engine que al parecer nos enfrentamos
+4. Inyectamos codigo y nos damod cuenta que si lo interpreta por lo tanto inyectamos comandos.
+
+en save template usamos lo cual si ejecuta comandos y borramos el archivo 
+
+```
+<#assign ex = "freemarker.template.utility.Execute"?new()>${ ex("id")}
+
+```
 
 
 
