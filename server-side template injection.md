@@ -183,9 +183,23 @@ Cookie: session=Lr5Zo3qOP0uZOyPGKcQok0pCrh6Kglek
 ```
 
 
+# Server-side template injection with information disclosure via user-supplied objects 
 
+Para este laboratorio se tiene que iniciar sesion dentro se pued editar las plantillas
+Lo que hice para hacer fallar al template engine es que meti todas las payloads dentro 
+de un tag lo cual me dijc que estaba tratando con djando.
 
+El paso dos fue agarrar y buscar djando que sintaxis seguia por ser python me di cuenta que seguia 
+la sintaxis de Jinja2 (Python) y que  probe las payloads de hackticks probe el debug si salio info
+posteriomente probe la de session key 
 
+```
+{% debug %}
+
+{{settings.SECRET_KEY}}
+``` 
+
+FIN
 
 
 
