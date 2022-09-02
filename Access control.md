@@ -21,11 +21,41 @@ https://0a01008a0387d145c0fc097500f2008b.web-security-academy.net/admin-6eu67g
 
 ```
 
+# User role controlled by request parameter
+
+## How To Write Burp Suite Match and Replace Rules
+
+> https://matthewsetter.com/write-burp-suite-match-and-replace-rules/
+
+
+Para este laboratorio se usa esto de remplazar la cookie por Admin=true; para no estar modfiicando manuealmente
+nos vamos a ***Pestala intercept -> Options -> Match and Remplace -> add -> Admin=false por Admin=true;***
+y todas la peticiones donde encuentre eso va aponer true lo que nos hace automaticamente 
+administradores y se resuleve el lab.
+
+```
+GET /my-account?id=wiener HTTP/1.1
+Host: 0a8700bf033e511cc0440b7100e9000e.web-security-academy.net
+Cookie: Admin=false; session=v9olK9hh4BJfTzIJbp7xmKOkKWDLT2fB
+Cache-Control: max-age=0
+Sec-Ch-Ua: " Not A;Brand";v="99", "Chromium";v="104"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.102 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: https://0a8700bf033e511cc0440b7100e9000e.web-security-academy.net/
+Accept-Encoding: gzip, deflate
+Accept-Language: es-419,es;q=0.9
+Connection: close
 
 
 
-
-
+```
 
 
 
