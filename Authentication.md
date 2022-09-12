@@ -50,7 +50,11 @@ Y que se genera un token que se replica abajo y arriba si se borra dicho token a
 ahora solo cambias el username por carlos y listo pudiste cambiar el password de la cuenta de carlos.
 
 
+# Username enumeration via subtly different responses
 
+Para este lab usamos el intruder basicamente es un ataque de fuerza bruta pero nos damos cuenta que el string de "Ivalid username or password" 
+cambia un poco para el usuario "af" lo pone sin punto se hace usao de las Opciones y del Grep Extract para ver exactamente que cambia se encuentra 
+el usuario "af" y ahora atacas el password y ya sirve.
 
 
 
