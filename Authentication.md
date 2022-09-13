@@ -158,7 +158,9 @@ Este ataque consiste en que se tienen 2 listas y  estas se van a convinar de la 
 NO es como que pruebe cada uno de los passwords para cada uno de los usuarios NO
 
 
+# Broken brute-force protection, IP block
 
+Para este laboratorio nos dirigimos al login y nos percatamos que nos bloquea 
 
 
 
