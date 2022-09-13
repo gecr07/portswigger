@@ -146,6 +146,17 @@ username=amarillo&password=§peter§
 Activamos en columnas que nos muestre que peticion se tardo mas nos muestra que un usuario "amarillo" se tardo mas que todas por lo tanto
 ya tenemos un usario para atacar ahora con un password finalmente atacacamos y nos da "dallas"( valores que cambian cada que uno levanta el lab al parecer)
 
+# Burp Suite Pitchfork attack type
+
+Este ataque consiste en que se tienen 2 listas y  estas se van a convinar de la siguiente manera
+
+1. Username1:Password1
+2. Username2:Password2
+3. Username3:Password3
+4. Username4:Password4
+
+NO es como que pruebe cada uno de los passwords para cada uno de los usuarios NO
+
 
 
 
