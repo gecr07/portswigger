@@ -366,6 +366,7 @@ base64encode(wiener:51dc30ddc473d43a6011e9ebba6ca770)
 Las reglas se van a aplicar secuencialmente al payload ( primero pusimos las credenciales de la cuenta wiener y ya luego los passwords que vienen en el lab)
 entonces agarraria el primer password despues le haria hash md5 despues a eso le pondria un prefijo que es el usuario y finalmente todo eso lo encoderia a 
 base64.
+
 6. Finalmente nos saca una peticion con un len distinto y esa resuelve el laboratorio!
 
 
