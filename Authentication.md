@@ -458,7 +458,16 @@ El mejor tutorial aqui
 > https://infinitelogins.com/2021/01/02/http-host-header-attacks-and-portswigger-academy-lab-examples/
 
 
+#  Password brute-force via password change
 
+Para este laboratorio los pasos son
+
+1. Se prueba la funcionalidad de cambio de password dentro de la cuenta de wiener
+2. Probando si ponemos el password bien pero los new password no coinciden te dice que "New passwords do not match" de lo contrario te saca y bloquea la cuenta
+3. Entonces se pone el usario carlos se fuzzea el password y los new passwords se poene distintos con esto se permite enumerar y ahcer brute force a los passwords
+4. Entonces para concluir si el password es correcto sacara ese mensaje "New passwords do not match" y esa es la vulnerabilidad esa y que se pone el user de carlos y lo acepta.
+
+ 
 
 
 
