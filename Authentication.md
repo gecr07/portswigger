@@ -434,10 +434,28 @@ username=carlos
 5. Vamos a los logs y copiamos y pegamos el token 
 6. Usamos el link y pegamos el token y cambia el password de carlos!
 
+Nota: Lo que pasa se usa la cabecera Host: para generar el valor que tiene para generar el link
+entonces si puedes controlar que se pasa en la cabecera host controlaras el link que se genera
+para esto se usa la X-Forwarded-Host que re escribe por asi decirlo la cabecera host
+se manda un email a carlos le da clic al link( como se supone que esta loggeado a su cuenta nos podemod robar el token )
+
+> que la modificación del encabezado del host devuelve un error. En su lugar, podemos inyectar nuestro propio encabezado X-Forwarded-Host que contiene un dominio arbitrario.
+
+> Lo que luego genera un correo electrónico que contiene un token de restablecimiento de contraseña adjunto a un dominio que podemos controlar.
+
+> Entonces, nuevamente, actualizamos el encabezado X-Forwarded-Host dentro de una nueva solicitud de restablecimiento de contraseña, pero lo apuntaremos a un dominio que realmente controlamos y modificaremos el usuario para que sea Carlos.
+
+> Esto generará un correo electrónico que contiene un enlace. Una vez que Carlos hace clic en ese enlace, se envía una solicitud de restablecimiento de contraseña a nuestro dominio que contiene el token que necesitamos.
+
+> Lanzar eso a Burp nos permite restablecer la contraseña de Carlos.
+
 Algo similar se explica aqui:
 
 > https://infosecwriteups.com/exploiting-password-reset-poisoning-b748797f0661
 
+El mejor tutorial aqui 
+
+> https://infinitelogins.com/2021/01/02/http-host-header-attacks-and-portswigger-academy-lab-examples/
 
 
 
