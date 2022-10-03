@@ -336,5 +336,36 @@ Genera esa peticion osea que se manda al intruder y se ataca
 
 
 
+# Brute-forcing a stay-logged-in cookie
+
+Para este laboratorio nos aprovechamos de la funcion de "Stay logged in" para lo cual:
+
+1. Ingresas a la cuenta de wiener con la opcion stay logged in
+2. Nos damos cuenta que tienen una especie de cookie 
+
+```
+GET /my-account HTTP/1.1
+Host: 0af9007503a84b26c013db4300290061.web-security-academy.net
+Cookie: stay-logged-in=d2llbmVyOjUxZGMzMGRkYzQ3M2Q0M2E2MDExZTllYmJhNmNhNzcw; session=C9PiaS9xvu880nRdvh4LlWjTENsAbqD7
+```
+
+
+3. En el lado izquierdo( depende de como lo tengas configurado) con el inspector vemos que esa cookie si se le puede llamar asi
+es un string en base64 de la siguiente manera
+
+```
+base64encode(wiener:51dc30ddc473d43a6011e9ebba6ca770)
+             user:MD5hash_pass
+```
+
+4. Mandas esa peticion al Intruder y posteriormente sale de la cuenta de wiener.
+5. Marcamos en la cookie y nos dirigimos a payload
+
+![reglas se aplican secuencialmente](https://user-images.githubusercontent.com/63270579/193482071-cc0601d2-487a-4a5a-8277-8a7066774569.PNG)
+
+Las reglas se van a aplicar secuencialmente al payload ( primero pusimos las credenciales de la cuenta wiener y ya luego los passwords que vienen en el lab)
+entonces agarraria el primer password despues le haria hash md5 despues a eso le pondria un prefijo que es el usuario y finalmente todo eso lo encoderia a 
+base64.
+6. Finalmente nos saca una peticion con un len distinto y esa resuelve el laboratorio!
 
 
