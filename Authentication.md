@@ -434,6 +434,10 @@ username=carlos
 5. Vamos a los logs y copiamos y pegamos el token 
 6. Usamos el link y pegamos el token y cambia el password de carlos!
 
+Algo similar se explica aqui:
+
+> https://infosecwriteups.com/exploiting-password-reset-poisoning-b748797f0661
+
 
 
 
