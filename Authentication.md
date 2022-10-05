@@ -468,9 +468,10 @@ Para este laboratorio los pasos son
 4. Entonces para concluir si el password es correcto sacara ese mensaje "New passwords do not match" y esa es la vulnerabilidad esa y que se pone el user de carlos y lo acepta.
 
  
+Necesitas entender mas cosas para leer esto y una cuenta de hackerone
 
 
-
+> https://github.com/rails/rails/issues/29893
 
 
 
