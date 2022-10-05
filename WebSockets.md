@@ -46,10 +46,12 @@ At this point, the network connection remains open and can be used to send WebSo
 
 Several features of the WebSocket handshake messages are worth noting:
 
-The Connection and Upgrade headers in the request and response indicate that this is a WebSocket handshake.
-The Sec-WebSocket-Version request header specifies the WebSocket protocol version that the client wishes to use. This is typically 13.
-The Sec-WebSocket-Key request header contains a Base64-encoded random value, which should be randomly generated in each handshake request.
-The Sec-WebSocket-Accept response header contains a hash of the value submitted in the Sec-WebSocket-Key request header, concatenated with a specific string defined in the protocol specification. This is done to prevent misleading responses resulting from misconfigured servers or caching proxies.
+1. The Connection and Upgrade headers in the request and response indicate that this is a WebSocket handshake.
+
+2. The Sec-WebSocket-Version request header specifies the WebSocket protocol version that the client wishes to use. This is typically 13.
+ 
+3. The Sec-WebSocket-Key request header contains a Base64-encoded random value, which should be randomly generated in each handshake request.
+4. The Sec-WebSocket-Accept response header contains a hash of the value submitted in the Sec-WebSocket-Key request header, concatenated with a specific string defined in the protocol specification. This is done to prevent misleading responses resulting from misconfigured servers or caching proxies.
 
 # Manipulating WebSocket messages to exploit vulnerabilities
 
