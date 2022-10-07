@@ -108,3 +108,6 @@ document['location']
 ```
 Es lo mismo ya que al ser un objeto actua como un diccionario
 
+
+
+>
