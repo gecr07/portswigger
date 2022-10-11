@@ -236,6 +236,8 @@ if __name__ == '__main__':
 ```
 
 
+Este ataque se haria con cluster bomb en burpsuite
+
 
 # Bibliografia o Recursos Consultados
 
