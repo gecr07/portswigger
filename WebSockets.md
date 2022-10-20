@@ -53,6 +53,16 @@ Several features of the WebSocket handshake messages are worth noting:
 3. The Sec-WebSocket-Key request header contains a Base64-encoded random value, which should be randomly generated in each handshake request.
 4. The Sec-WebSocket-Accept response header contains a hash of the value submitted in the Sec-WebSocket-Key request header, concatenated with a specific string defined in the protocol specification. This is done to prevent misleading responses resulting from misconfigured servers or caching proxies.
 
+## Javascript
+
+```
+ws.send("Peter Wiener");
+
+
+
+```
+
+
 # Manipulating WebSocket messages to exploit vulnerabilities
 
 Para este lab
@@ -72,8 +82,25 @@ hizo ese proceso por lo cual esta como sanitizando elw codigo ponemos el payload
 
 ```
 
+# Lab: Manipulating the WebSocket handshake to exploit vulnerabilities
 
+Primero abrimos la pagina y vemos que usa web sockets si intentamos el ataque del ejercicio pasado nos banea la direccion para 
+falsificar nuestra ip se usa:
 
+```
+X-Forwarded-For: 1.1.1.1
+
+```
+ Antes usaste el intercept y mandaste esa peticion al repeater
+ 
+ Como esta detectando nuestro ataque hay dos metodos
+ 
+ 
+ ```
+ {"message":"<img src=1 oNeRrOr=alert`1`>"}
+ {"message":"<iframe src='jAvAsCrIpT:alert'1''>"}
+ 
+ ```
 
 
 
