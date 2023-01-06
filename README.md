@@ -108,6 +108,29 @@ document['location']
 ```
 Es lo mismo ya que al ser un objeto actua como un diccionario
 
+# Ejemplo CTF "https://echoctf.red/target/45"
+
+![image](https://user-images.githubusercontent.com/63270579/211060792-1a80e8e9-8046-4287-bf1f-eef92d8d2652.png)
+
+Entonces la para que se entienda bien como funciona la cabecera "X-Forwarded-For:" agarrando el texto del CTF 
+
+> When your web request is forwarded through web servers, there is a header that is being added that notifies the next server, who is this request forwarded for...
+
+Osea que lo que entiendo es que se usa para que los sevidores por los que pasa sepan cual servidor es el que sigue pero esta tiene vulnerabilidades.
+
+![image](https://user-images.githubusercontent.com/63270579/211061409-5216dfad-98b1-47d6-bde0-9f19fa0b3da3.png)
+
+Se usa para bypass de este tipo de protecciones ya no siento que exitan tantos sitios vulnerables siento que es una vuln antigua
+
+![image](https://user-images.githubusercontent.com/63270579/211061773-769dac7f-1cd0-4a6e-9f9d-9e4e322c2651.png)
+
+
+Entonces le dice que es asi mismo y pasa una restriccion... la respuesta es positiva
+
+
+![image](https://user-images.githubusercontent.com/63270579/211061562-f8d9e02d-0204-4e63-8472-0bcfcab56975.png)
+
+
 
 # Paginas Referencias
 
