@@ -139,6 +139,16 @@ cuanod hay una redireccion usa la cabecera Location: direcction como en el ejemp
 
 ![image](https://user-images.githubusercontent.com/63270579/211064012-e981ccc9-84a3-47ea-a5d6-06ce7fbbc354.png)
 
+Ejemplo Set-Cookie CTF
+
+The Set-Cookie HTTP response header is used to send a cookie from the server to the user agent, so that the user agent can send it back to the server later. To send multiple cookies, multiple Set-Cookie headers should be sent in the same response.
+
+![image](https://user-images.githubusercontent.com/63270579/211084465-6f3ba7ff-148e-417a-af19-ae8c2faebec0.png)
+
+Me doy cuenta que manda una peticion con una header en el response "Set-Cookie" por el texto de arriba me doy cuenta que se podria poner una cookie y engañar a la aplicacion para que crea que es el admin.
+
+![image](https://user-images.githubusercontent.com/63270579/211086077-7930d4f5-b879-4dd1-89d0-58985b860abd.png)
+
 
 
 # Paginas Referencias
