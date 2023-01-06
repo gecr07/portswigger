@@ -131,6 +131,15 @@ Entonces le dice que es asi mismo y pasa una restriccion... la respuesta es posi
 ![image](https://user-images.githubusercontent.com/63270579/211061562-f8d9e02d-0204-4e63-8472-0bcfcab56975.png)
 
 
+# Ejemplo de redirect
+
+
+Nos dice el ctf que va a existir una re direccion en este caso el codifo 302 aunque hay mas codigos 3xx pero lo important es ver como funciona 
+cuanod hay una redireccion usa la cabecera Location: direcction como en el ejemplo 
+
+![image](https://user-images.githubusercontent.com/63270579/211064012-e981ccc9-84a3-47ea-a5d6-06ce7fbbc354.png)
+
+
 
 # Paginas Referencias
 
