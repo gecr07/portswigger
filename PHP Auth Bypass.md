@@ -83,6 +83,27 @@ Si buscabamos asi el ataque
 ![image](https://user-images.githubusercontent.com/63270579/211360201-920d462e-616d-41c1-8fe7-724bf498e9fc.png)
 
 
+Para bypasear el login se mando las variables como array [].
+
+![image](https://user-images.githubusercontent.com/63270579/211371108-2d865595-06e3-4b5e-8a2b-92a2ae351472.png)
+
+![image](https://user-images.githubusercontent.com/63270579/211371229-7aa2c4d9-215a-483c-b31b-ef347b6e8345.png)
+
+```
+Looking at the title (which you definitely should take a closer look at along with the description in CTFs), it's pretty obvious that we're dealing with PHP type juggling vulnerability.
+
+We can try some basic payloads related like to it like 0 but we will reach to a dead end eventually, but there's still one thing which we should try, what if we submitted our parameters as arrays instead of strings?
+
+Submitting ?login[]=John&password[]=Doe will bypass the whole login process and we can get our flag from there, interestingly a warning will pop-up: Warning: strcmp() expects parameter 1 to be string, array given in /var/www/html/index.php on line 16, so it's safe to assume that the back-end PHP code looks like this:
+
+if (strcmp($_GET['login'], 'unknownuser') == 0 && strcmp($_GET['password'], 'unknownpassword') == 0) { // do stuff as authenticated user }
+
+The comparison will result in a NULL since an array can't be compared to a string, and due to type juggling NULL equals 0 (which satisfies the condition).
+
+For further reading: https://owasp.org/www-pdf-archive/PHPMagicTricks-TypeJuggling.pdf
+
+```
+
 
 
 
