@@ -75,6 +75,12 @@ Para este lab nos damos cuenta de varias cosas 1 esta usanod PHP como se puede v
 
 
 
+![image](https://user-images.githubusercontent.com/63270579/211359923-b913c640-ed10-4bad-928b-9e3fd461e8a9.png)
+
+
+Si buscabamos asi el ataque 
+
+![image](https://user-images.githubusercontent.com/63270579/211360201-920d462e-616d-41c1-8fe7-724bf498e9fc.png)
 
 
 
