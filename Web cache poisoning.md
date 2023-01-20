@@ -1,5 +1,10 @@
 # Web cache poisoning
 
+## Cache Busting
+
+Cache busting is useful because it allows your visitors to receive the most recently updated files without having to perform a hard refresh or clear their browser cache: en mis palabras es como lo que rompe la cache en este caso se usa el Query string ?cb=1234
+
+> https://www.keycdn.com/support/what-is-cache-busting
 
 ## Web cache poisoning with an unkeyed header
 
@@ -36,7 +41,7 @@ Para este lab primero vemos las peticiones y respuestas nos damos cuenta de que 
 Nos damos cuenta que se refleja lo que pongamos en la cabecera entonces ponemos un alert pero lo que si no se porque se usan los "-alert(1)-" porque si no usas los guines y las comillas no jala. sabemos que funciona porque donde dice cache en la respuesta (X-Cache: hit) dice hit en vez de miss. y asi se resuelve el lab si tu visitas la pagina te das cuenta que si ejecuta el alert pero portswingger emula que un usuario entra a la pagina no es necesario.
 
 
-
+## 
 
 
 
