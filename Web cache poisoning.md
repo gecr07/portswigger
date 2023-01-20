@@ -43,6 +43,10 @@ Nos damos cuenta que se refleja lo que pongamos en la cabecera entonces ponemos 
 
 ## Web cache poisoning with multiple headers
 
+X-Forwarded-Scheme Protocolo especificado en la solicitud de cliente
+
+> https://cloud.ibm.com/docs/cloud-foundry-public?topic=cloud-foundry-public-http-headers&locale=es
+
 Para este lab se resolvio de la siguiente manera ( que esta bien dificil algo asi en la realidad). Ponemos un cache buster y si ponemos la X-Forwarded-Host vemos que no afecta la respuesta 
 
 ![image](https://user-images.githubusercontent.com/63270579/213619636-76787b80-40c1-421b-90b8-d7869a75b7f8.png)
