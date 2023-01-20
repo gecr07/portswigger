@@ -26,7 +26,14 @@ caso solo mostramos las cookies y se resuleve el lab.
 
 
 
+## Lab: Web cache poisoning with an unkeyed cookie
 
+Para este lab primero vemos las peticiones y respuestas nos damos cuenta de que posiblemente se puede envenenar la cache.
+
+
+![image](https://user-images.githubusercontent.com/63270579/213589920-c6f91780-f90a-4d78-b840-a379757a9186.png)
+
+Nos damos cuenta que se refleja lo que pongamos en la cabecera entonces ponemos un alert pero lo que si no se porque se usan los "-alert(1)-" porque si no usas los guines y las comillas no jala. sabemos que funciona porque donde dice cache en la respuesta (X-Cache: hit) dice hit en vez de miss. y asi se resuelve el lab si tu visitas la pagina te das cuenta que si ejecuta el alert pero portswingger emula que un usuario entra a la pagina no es necesario.
 
 
 
